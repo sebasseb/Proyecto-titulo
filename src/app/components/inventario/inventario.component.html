@@ -1,20 +1,44 @@
 <div class="container" style="padding-top: 8%;">
-    <h1>Inventario</h1>
+        <h1>Inventario</h1>
 
-    <!-- <button class="btn btn-info" (click)="addProducto(getProducto())">Agregar Producto</button> -->
+        <!-- <button class="btn btn-info" (click)="addProducto(getProducto())">Agregar Producto</button> -->
 
-    <div class="wrapper">
-        
-            <label> id : <input id="id" type="number" placeholder="id" [(ngModel)]="newProducto.idProducto"></label>
-            <label>nombre producto : <input id="nombre" type="text" placeholder="Nombre Producto"
-                    [(ngModel)]="newProducto.nombreProducto"></label>
-            <label>cantidad : <input id="cantidad" type="number" placeholder="Cantidad Producto"
-                    [(ngModel)]="newProducto.cantProducto"></label>
-            <label>id Proveedor : <input id="proveedor" type="number" placeholder="id Proveedor"
-                    [(ngModel)]="newProducto.idProveedor"></label>
-            <label>Precio : <input id="precio" type="number" placeholder="Precio"
-                    [(ngModel)]="newProducto.valorProducto"></label>
-            <button (click)="addProducto(newProducto)">GET!</button>
-        
-    </div>
+        <div class="wrapper">
+                <div class="inputs">
+                        <label>nombre producto : <input id="nombre" type="text" placeholder="Nombre Producto"
+                                        [(ngModel)]="newProducto.nombreProducto"></label>
+                        <label>cantidad : <input id="cantidad" type="number" placeholder="Cantidad Producto"
+                                        [(ngModel)]="newProducto.cantProducto"></label>
+                        <label>id Proveedor : <input id="proveedor" type="number" placeholder="id Proveedor"
+                                        [(ngModel)]="newProducto.idProveedor"></label>
+                        <label>Precio : <input id="precio" type="number" placeholder="Precio"
+                                        [(ngModel)]="newProducto.valorProducto"></label>
+                </div>
+                <div class="buttons">
+                        <button class="btn btn-success" (click)="addOrEditProducto()">Agregar o Editar Producto</button>
+                        <button *ngIf="newProducto.idProducto !== 0" class="btn btn-danger" (click)="delete()" >Eliminar Producto</button>
+                </div>
+        </div>
+        <div class="table-responsive">
+                <table  class="table table-hover table-dark" >
+                        <tr>
+                                
+                                <th scope="col">ID</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">id Proveedor</th>
+                                <th scope="col">Stock</th>
+                                <th scope="col">Precio</th>                            
+                        </tr>
+                        <tbody>
+                                <tr *ngFor="let producto of ArrayProductos" (click)="openForEdit(producto)" [class.active]="newProducto == producto">
+                                        <td>{{producto.idProducto}}</td>
+                                        <td>{{producto.nombreProducto}}</td>
+                                        <td>{{producto.idProveedor}}</td>
+                                        <td>{{producto.cantProducto}}</td>
+                                        <td>{{producto.valorProducto}}</td>                                    
+                                </tr>
+                        </tbody>
+                </table>
+        </div>
+
 </div>

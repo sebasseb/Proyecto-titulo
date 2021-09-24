@@ -1,16 +1,13 @@
 export class Producto {
   idProducto: number;
-  cantProducto: number;
-  idProveedor: number;
-  nombreProducto: string;
-  valorProducto: number;
+  cantProducto!: number;
+  idProveedor!: number;
+  nombreProducto!: string;
+  valorProducto!: number;
 
   constructor() {
-    this.idProducto = 1;
-    this.cantProducto = 1;
-    this.idProveedor = 1;
-    this.nombreProducto = 'primero';
-    this.valorProducto = 1  ;
+    this.idProducto = 0 ;
+    
   }
 
   /**
