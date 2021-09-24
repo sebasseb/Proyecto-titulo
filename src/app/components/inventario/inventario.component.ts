@@ -52,7 +52,7 @@ export class InventarioComponent implements OnDestroy, OnInit {
    * delete
    */
   public delete() {
-    if (confirm('¿Seguro quieres elimina esta entrada?')) {
+    if (confirm('¿Seguro quieres eliminar esta entrada?')) {
       this.ArrayProductos = this.ArrayProductos.filter(elem => elem != this.newProducto);
       this.newProducto = new Producto();
     }

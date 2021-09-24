@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Reserva } from '../../class/reserva';
 
+
 @Component({
   selector: 'app-venta',
   templateUrl: './venta.component.html',

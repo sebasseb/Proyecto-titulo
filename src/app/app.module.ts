@@ -21,6 +21,8 @@ import { MenuPrincipalComponent } from './components/menu-principal/menu-princip
 import { ArriendoComponent } from './components/arriendo/arriendo.component';
 import { VentaComponent } from './components/venta/venta.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
+import { AgendaComponent } from './components/agenda/agenda.component';
+
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { InventarioComponent } from './components/inventario/inventario.componen
     MenuPrincipalComponent,
     ArriendoComponent,
     VentaComponent,
-    InventarioComponent
+    InventarioComponent,
+    AgendaComponent
+
   ],
   imports: [
     BrowserModule,
