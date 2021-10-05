@@ -1,45 +1,48 @@
 <div class="container" style="padding-top: 8%;">
-    <button class="btn" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Menu Principal</i></button>
-</div>
-
-<div class="container" style="padding-top: 8%;">
-    <h1>Inventario</h1>
+    <h1>Nómina Trabajadores</h1>
     <button class="btn" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Menu Principal</i></button>
     <div class="wrapper">
         <div class="inputs">
-            <label>RUT : <input id="rut" type="text" placeholder="Rut del Trabajador" [(ngModel)]="newTrabajador"></label>
+            <label>RUT : <input id="rut" type="text" placeholder="Rut del Trabajador"
+                    [(ngModel)]="newTrabajador.rut"></label>
+            <br>
             <label>Nombre trabajador : <input id="nombre" type="text" placeholder="Trabajador"
                     [(ngModel)]="newTrabajador.nombre"></label>
-            <label>Dirección : <input id="direccion" type="text" placeholder="Domicilio" [(ngModel)]="newTrabajador.direccion"></label>
-            <label>Telefono: <input id="telefono" type="number" placeholder="numero de contacto" [(ngModel)]="newTrabajador.fono"></label>
-            
+            <br>
+            <label>Dirección : <input id="direccion" type="text" placeholder="Domicilio"
+                    [(ngModel)]="newTrabajador.direccion"></label>
+            <br>
+            <label>Telefono: <input id="telefono" type="number" placeholder="numero de contacto"
+                    [(ngModel)]="newTrabajador.fono"></label>
+            <br>
+
         </div>
-        <!-- <div class="buttons">
-                    <button class="btn btn-success" (click)="addOrEditProducto()">Agregar o Editar Producto</button>
-                    <button *ngIf="newProducto.idProducto !== 0" class="btn btn-danger" (click)="delete()" >Eliminar Producto</button>
-            </div> -->
+        <div class="buttons">
+                    <button class="btn btn-success" (click)="addOrEditTrabajador()">Agregar o Editar Trabajador</button>
+                    <button *ngIf="newTrabajador.idTrabajador !== 0" class="btn btn-danger" (click)="delete()" >Eliminar Trabajador</button>
+            </div>
     </div>
     <br>
-    <!-- <div class="table-responsive">
+    <div class="table-responsive">
             <table  class="table table-hover table-dark" >
                     <tr>
                             
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>                            
+                            <th scope="col">id</th>
+                            <th scope="col">RUT</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Teléfono</th>                            
                     </tr>
                     <tbody>
-                            <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>                                    
+                            <tr *ngFor="let trabajador of ArrayTrabajadores" (click)="openForEdit(trabajador)" [class.active]="newTrabajador == trabajador">
+                                    <td>{{trabajador.idTrabajador}}</td>
+                                    <td>{{trabajador.rut}}</td>
+                                    <td>{{trabajador.nombre}}</td>
+                                    <td>{{trabajador.direccion}}</td>
+                                    <td>{{trabajador.fono}}</td>                                    
                             </tr>
                     </tbody>
             </table>
-    </div> -->
+    </div>
 
 </div>

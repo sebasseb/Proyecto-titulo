@@ -4,5 +4,10 @@ export class Trabajador {
   nombre!: string;
   direccion!: string;
   fono!: number;
+
+  constructor() {
+    this.idTrabajador = 0 ;
+    
+  }
   
 }
