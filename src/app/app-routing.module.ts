@@ -14,6 +14,7 @@ import { VentaComponent } from './components/venta/venta.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
 import { FinanzasComponent } from './components/finanzas/finanzas.component';
+import { ReservaFutbolitoComponent } from './components/reserva-futbolito/reserva-futbolito.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,7 @@ const routes: Routes = [
   { path: 'inventario', component: InventarioComponent },
   { path: 'trabajadores', component: TrabajadoresComponent },
   { path: 'finanzas', component: FinanzasComponent },
-
+  { path: 'futbolito', component: ReservaFutbolitoComponent },
 
 
   { path: '', redirectTo: '/inicio', pathMatch: 'full' }

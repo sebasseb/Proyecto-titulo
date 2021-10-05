@@ -24,6 +24,7 @@ import { InventarioComponent } from './components/inventario/inventario.componen
 import { AgendaComponent } from './components/agenda/agenda.component';
 import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
 import { FinanzasComponent } from './components/finanzas/finanzas.component';
+import { ReservaFutbolitoComponent } from './components/reserva-futbolito/reserva-futbolito.component';
 
 
 
@@ -45,7 +46,8 @@ import { FinanzasComponent } from './components/finanzas/finanzas.component';
     InventarioComponent,
     AgendaComponent,
     TrabajadoresComponent,
-    FinanzasComponent
+    FinanzasComponent,
+    ReservaFutbolitoComponent
 
   ],
   imports: [
