@@ -1,15 +1,13 @@
 <div class="container" style="padding-top: 8%;">
         <h1>Inventario</h1>
-
-        <!-- <button class="btn btn-info" (click)="addProducto(getProducto())">Agregar Producto</button> -->
-
+        <button class="btn" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Atrás</i></button>
         <div class="wrapper">
                 <div class="inputs">
                         <label>nombre producto : <input id="nombre" type="text" placeholder="Nombre Producto"
                                         [(ngModel)]="newProducto.nombreProducto"></label>
                         <label>cantidad : <input id="cantidad" type="number" placeholder="Cantidad Producto"
                                         [(ngModel)]="newProducto.cantProducto"></label>
-                        <label>id Proveedor : <input id="proveedor" type="number" placeholder="id Proveedor"
+                        <label>Proveedor : <input id="proveedor" type="number" placeholder="Nombre Proveedor"
                                         [(ngModel)]="newProducto.idProveedor"></label>
                         <label>Precio : <input id="precio" type="number" placeholder="Precio"
                                         [(ngModel)]="newProducto.valorProducto"></label>
@@ -19,6 +17,7 @@
                         <button *ngIf="newProducto.idProducto !== 0" class="btn btn-danger" (click)="delete()" >Eliminar Producto</button>
                 </div>
         </div>
+        <br>
         <div class="table-responsive">
                 <table  class="table table-hover table-dark" >
                         <tr>

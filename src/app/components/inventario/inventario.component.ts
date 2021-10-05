@@ -8,7 +8,7 @@ import { Producto } from '../../class/producto';
   templateUrl: './inventario.component.html',
   styleUrls: ['./inventario.component.less']
 })
-export class InventarioComponent implements OnDestroy, OnInit {
+export class InventarioComponent implements  OnInit {
   ArrayProductos: Array<Producto>;
   newProducto: Producto;
 
@@ -22,9 +22,7 @@ export class InventarioComponent implements OnDestroy, OnInit {
     this.newProducto = new Producto();
 
   }
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
+  
 
   ngOnInit(): void {
   }
