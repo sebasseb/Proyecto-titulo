@@ -12,6 +12,8 @@ import { MenuPrincipalComponent } from './components/menu-principal/menu-princip
 import { ArriendoComponent } from './components/arriendo/arriendo.component';
 import { VentaComponent } from './components/venta/venta.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
+import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
+import { FinanzasComponent } from './components/finanzas/finanzas.component';
 
 
 const routes: Routes = [
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'arriendo', component: ArriendoComponent },
   { path: 'venta', component: VentaComponent },
   { path: 'inventario', component: InventarioComponent },
+  { path: 'trabajadores', component: TrabajadoresComponent },
+  { path: 'finanzas', component: FinanzasComponent },
 
 
 

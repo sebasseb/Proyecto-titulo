@@ -22,6 +22,8 @@ import { ArriendoComponent } from './components/arriendo/arriendo.component';
 import { VentaComponent } from './components/venta/venta.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { AgendaComponent } from './components/agenda/agenda.component';
+import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
+import { FinanzasComponent } from './components/finanzas/finanzas.component';
 
 
 
@@ -41,7 +43,9 @@ import { AgendaComponent } from './components/agenda/agenda.component';
     ArriendoComponent,
     VentaComponent,
     InventarioComponent,
-    AgendaComponent
+    AgendaComponent,
+    TrabajadoresComponent,
+    FinanzasComponent
 
   ],
   imports: [

@@ -1,0 +1,45 @@
+<div class="container" style="padding-top: 8%;">
+    <button class="btn" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Menu Principal</i></button>
+</div>
+
+<div class="container" style="padding-top: 8%;">
+    <h1>Inventario</h1>
+    <button class="btn" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Menu Principal</i></button>
+    <div class="wrapper">
+        <div class="inputs">
+            <label>RUT : <input id="rut" type="text" placeholder="Rut del Trabajador" [(ngModel)]="newTrabajador"></label>
+            <label>Nombre trabajador : <input id="nombre" type="text" placeholder="Trabajador"
+                    [(ngModel)]="newTrabajador.nombre"></label>
+            <label>Dirección : <input id="direccion" type="text" placeholder="Domicilio" [(ngModel)]="newTrabajador.direccion"></label>
+            <label>Telefono: <input id="telefono" type="number" placeholder="numero de contacto" [(ngModel)]="newTrabajador.fono"></label>
+            
+        </div>
+        <!-- <div class="buttons">
+                    <button class="btn btn-success" (click)="addOrEditProducto()">Agregar o Editar Producto</button>
+                    <button *ngIf="newProducto.idProducto !== 0" class="btn btn-danger" (click)="delete()" >Eliminar Producto</button>
+            </div> -->
+    </div>
+    <br>
+    <!-- <div class="table-responsive">
+            <table  class="table table-hover table-dark" >
+                    <tr>
+                            
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>                            
+                    </tr>
+                    <tbody>
+                            <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>                                    
+                            </tr>
+                    </tbody>
+            </table>
+    </div> -->
+
+</div>

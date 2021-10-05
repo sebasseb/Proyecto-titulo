@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { Subject } from 'rxjs';
+
 import { Producto } from '../../class/producto';
 
 @Component({
