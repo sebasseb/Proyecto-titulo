@@ -19,15 +19,12 @@ export class TrabajadoresService {
     return this.http.post(`${this.URL}agregarTrabajador.php`, JSON.stringify(trabajador));
   }
 
-  eliminarTrabajador(idTrabajador: number) {
-    return this.http.get(`${this.URL}eliminarTrabajador.php?idTrabajador=${idTrabajador}`);
+  eliminarTrabajador(id: number) {
+    return this.http.get(`${this.URL}eliminarTrabajador.php?id=${id}`);
   }
 
-  seleccionarTrabajador(idTrabajador: number) {
-    return this.http.get(`${this.URL}seleccionarTrabajador.php?idUsuario=${idTrabajador}`);
-  }
 
-  editarTrabajador(trabajador: Trabajador) {
-    return this.http.post(`${this.URL}EditarUsuario.php`, JSON.stringify(trabajador));
+  buscarTrabajador(rut: string) {
+    return this.http.get(`${this.URL}buscarTrabajador.php?rut=${rut}`);
   }
 }
