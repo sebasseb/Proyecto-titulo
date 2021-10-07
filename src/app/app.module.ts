@@ -26,6 +26,8 @@ import { TrabajadoresComponent } from './components/trabajadores/trabajadores.co
 import { FinanzasComponent } from './components/finanzas/finanzas.component';
 import { ReservaFutbolitoComponent } from './components/reserva-futbolito/reserva-futbolito.component';
 
+import { TrabajadoresService } from './servicios/trabajadores.service';
+
 
 
 @NgModule({
@@ -57,8 +59,11 @@ import { ReservaFutbolitoComponent } from './components/reserva-futbolito/reserv
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     AppRoutingModule
+    
   ],
-  providers: [],
+  providers: [
+    TrabajadoresService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
