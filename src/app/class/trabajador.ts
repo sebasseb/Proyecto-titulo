@@ -1,12 +1,12 @@
 export class Trabajador {
-  idTrabajador!: number;
+  id!: number;
   rut!: string;
   nombre!: string;
   direccion!: string;
   fono!: number;
 
   constructor() {
-    this.idTrabajador = 0 ;
+    this.id = 0 ;
     
   }
   

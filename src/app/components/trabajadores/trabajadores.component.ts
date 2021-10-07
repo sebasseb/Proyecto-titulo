@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient} from '@angular/common/http'
 
 import { Trabajador } from 'src/app/class/trabajador';
 import {TrabajadoresService } from '../../servicios/trabajadores.service'
@@ -12,12 +13,13 @@ import {TrabajadoresService } from '../../servicios/trabajadores.service'
 export class TrabajadoresComponent implements OnInit {
   ArrayTrabajadores: Array<Trabajador>;
   newTrabajador: Trabajador;
-  trabajador: any;
+  http!: HttpClient;
+ 
 
   constructor(private trabajadoresServicio: TrabajadoresService) {
     this.ArrayTrabajadores = [];
     this.newTrabajador = new Trabajador();
-    this.trabajador = null;
+    
 
     
    }
@@ -30,18 +32,25 @@ export class TrabajadoresComponent implements OnInit {
   obtenerTrabajadores() {
     this.trabajadoresServicio.obtenerTrabajadores().subscribe((res) => {
       this.ArrayTrabajadores = res;
-      //conexion
+      //console.log('RES:',res);
     });
   }
 
   public addOrEditTrabajador() {
-    if (this.newTrabajador.idTrabajador === 0) {
-      this.newTrabajador.idTrabajador = this.ArrayTrabajadores.length + 1;
+    if (this.newTrabajador.id === 0) {
+      this.newTrabajador.id = this.ArrayTrabajadores.length + 1;
       this.ArrayTrabajadores.push(this.newTrabajador);
-
+      //console.log(JSON.stringify(this.newTrabajador));
+      this.trabajadoresServicio.agregarTrabajador(this.newTrabajador).subscribe(
+        datos => {
+          
+        }
+      )
+      
+      
     }
     this.newTrabajador = new Trabajador();
-    console.log(this.ArrayTrabajadores)
+    //console.log(this.ArrayTrabajadores)
   }
 
   public openForEdit(trabajador: Trabajador) {

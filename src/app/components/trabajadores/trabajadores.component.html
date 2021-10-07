@@ -21,8 +21,8 @@
                 <div class="buttons">
                         <button class="btn btn-success" (click)="addOrEditTrabajador()">Agregar o Editar
                                 Trabajador</button>
-                        <button *ngIf="newTrabajador.idTrabajador !== 0" class="btn btn-danger"
-                                (click)="delete()">Eliminar Trabajador</button>
+                        <button *ngIf="newTrabajador.id !== 0" class="btn btn-danger" (click)="delete()">Eliminar
+                                Trabajador</button>
                 </div>
         </div>
         <br>
@@ -39,7 +39,7 @@
                         <tbody>
                                 <tr *ngFor="let trabajador of ArrayTrabajadores" (click)="openForEdit(trabajador)"
                                         [class.active]="newTrabajador == trabajador">
-                                        <td>{{trabajador.idTrabajador}}</td>
+                                        <td>{{trabajador.id}}</td>
                                         <td>{{trabajador.rut}}</td>
                                         <td>{{trabajador.nombre}}</td>
                                         <td>{{trabajador.direccion}}</td>
@@ -48,6 +48,6 @@
                         </tbody>
                 </table>
         </div>
-     
+
 
 </div>

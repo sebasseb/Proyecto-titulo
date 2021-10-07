@@ -15,6 +15,7 @@ export class TrabajadoresService {
     return this.http.get(`${this.URL}obtenerTrabajadores.php`);
   }
   agregarTrabajador(trabajador: Trabajador) {
+    
     return this.http.post(`${this.URL}agregarTrabajador.php`, JSON.stringify(trabajador));
   }
 
