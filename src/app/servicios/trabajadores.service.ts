@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TrabajadoresService {
-  URL: any = "http://localhost/canchaseb/src/app/api/Trabajadores/";
+  URL: any = "/canchaseb/src/app/api/Trabajadores/";
 
   constructor(private http: HttpClient) { }
   
@@ -26,5 +26,9 @@ export class TrabajadoresService {
 
   buscarTrabajador(rut: string) {
     return this.http.get(`${this.URL}buscarTrabajador.php?rut=${rut}`);
+  }
+
+  editarTrabajador(trabajador: Trabajador) {
+    return this.http.post(`${this.URL}editarTrabajadores.php`, JSON.stringify(trabajador));
   }
 }

@@ -1,22 +1,25 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { Producto } from "src/app/class/producto";
+import { ProductosService } from "src/app/servicios/productos.service";
 
-import { Producto } from '../../class/producto';
 
 @Component({
   selector: 'app-inventario',
   templateUrl: './inventario.component.html',
-  styleUrls: ['./inventario.component.less']
+  styleUrls: ['./inventario.component.less'],
+  providers: [ProductosService]
 })
 export class InventarioComponent implements  OnInit {
   ArrayProductos: Array<Producto>;
   newProducto: Producto;
+  
 
   
 
 
 
 
-  constructor() {
+  constructor(private productosServicio: ProductosService) {
     this.ArrayProductos = [];
     this.newProducto = new Producto();
 
@@ -24,17 +27,47 @@ export class InventarioComponent implements  OnInit {
   
 
   ngOnInit(): void {
+    this.obtenerProductos();
   }
 
+  public obtenerProductos() {
+    this.productosServicio.obtenerProductos().subscribe((res) => {
+      this.ArrayProductos = res;
+      console.log(res);
+      
+    })
+  }
 
   public addOrEditProducto() {
-    if (this.newProducto.idProducto === 0) {
-      this.newProducto.idProducto = this.ArrayProductos.length + 1;
-      this.ArrayProductos.push(this.newProducto);
+    if (this.newProducto.id === 0) {
+
+      this.newProducto.id = this.ArrayProductos.length + 1;
+      
+      this.productosServicio.agregarProducto(this.newProducto).subscribe(
+        datos => {
+          if (datos === null) {
+            this.ArrayProductos.push(this.newProducto);
+          } else {
+            console.log('no se agrego');
+            
+          }
+        }
+      )
+
+      this.obtenerProductos();
+
+      
 
     }
+
+    if (this.newProducto.id > 0) {
+      
+      this.productosServicio.editarProducto(this.newProducto).subscribe();
+      
+    }
+
     this.newProducto = new Producto();
-    console.log(this.ArrayProductos)
+    
   }
 
   /**
@@ -42,6 +75,8 @@ export class InventarioComponent implements  OnInit {
    */
   public openForEdit(producto: Producto) {
     this.newProducto = producto;
+    
+    
 
   }
 
@@ -51,6 +86,7 @@ export class InventarioComponent implements  OnInit {
   public delete() {
     if (confirm('¿Seguro quieres eliminar esta entrada?')) {
       this.ArrayProductos = this.ArrayProductos.filter(elem => elem != this.newProducto);
+      this.productosServicio.eliminarProducto(this.newProducto.id).subscribe();
       this.newProducto = new Producto();
     }
   }
@@ -58,8 +94,7 @@ export class InventarioComponent implements  OnInit {
   /**
    * getProducto
    */
-  public getProducto() { return this.newProducto; }
-  public getIdProducto() { return this.newProducto.getIdProducto(); }
+ 
 
 
   public console(any: any) {

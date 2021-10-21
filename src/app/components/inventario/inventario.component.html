@@ -4,17 +4,17 @@
         <div class="wrapper">
                 <div class="inputs">
                         <label>nombre producto : <input id="nombre" type="text" placeholder="Nombre Producto"
-                                        [(ngModel)]="newProducto.nombreProducto"></label>
+                                        [(ngModel)]="newProducto.nombre"></label>
                         <label>cantidad : <input id="cantidad" type="number" placeholder="Cantidad Producto"
-                                        [(ngModel)]="newProducto.cantProducto"></label>
+                                        [(ngModel)]="newProducto.stock"></label>
                         <label>Proveedor : <input id="proveedor" type="number" placeholder="Nombre Proveedor"
-                                        [(ngModel)]="newProducto.idProveedor"></label>
+                                        [(ngModel)]="newProducto.id_proveedor"></label>
                         <label>Precio : <input id="precio" type="number" placeholder="Precio"
                                         [(ngModel)]="newProducto.valorProducto"></label>
                 </div>
                 <div class="buttons">
                         <button class="btn btn-success" (click)="addOrEditProducto()">Agregar o Editar Producto</button>
-                        <button *ngIf="newProducto.idProducto !== 0" class="btn btn-danger" (click)="delete()" >Eliminar Producto</button>
+                        <button *ngIf="newProducto.id !== 0" class="btn btn-danger" (click)="delete()" >Eliminar Producto</button>
                 </div>
         </div>
         <br>
@@ -30,10 +30,10 @@
                         </tr>
                         <tbody>
                                 <tr *ngFor="let producto of ArrayProductos" (click)="openForEdit(producto)" [class.active]="newProducto == producto">
-                                        <td>{{producto.idProducto}}</td>
-                                        <td>{{producto.nombreProducto}}</td>
-                                        <td>{{producto.idProveedor}}</td>
-                                        <td>{{producto.cantProducto}}</td>
+                                        <td>{{producto.id}}</td>
+                                        <td>{{producto.nombre}}</td>
+                                        <td>{{producto.id_proveedor}}</td>
+                                        <td>{{producto.stock}}</td>
                                         <td>{{producto.valorProducto}}</td>                                    
                                 </tr>
                         </tbody>

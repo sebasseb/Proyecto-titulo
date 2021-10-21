@@ -5,17 +5,14 @@
   require("../database.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
 
   $link = connect();
-  $rut = $_GET['rut'];
- //$rut = '19015485-8';
   
   // REALIZA LA QUERY A LA DB
-  $registros = mysqli_query($link, "SELECT * FROM trabajadores where rut='$rut'");
+  $registros = mysqli_query($link, "SELECT * FROM productos");
   
   // RECORRE EL RESULTADO Y LO GUARDA EN UN ARRAY
-  $datos = null;
   while ($resultado = mysqli_fetch_array($registros))  
   {
-    $datos= $resultado;
+    $datos[]= $resultado;
   }
   
   $json = json_encode($datos); // GENERA EL JSON CON LOS DATOS OBTENIDOS
