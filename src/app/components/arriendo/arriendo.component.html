@@ -1,38 +1,41 @@
 <div class="container" style="padding-top: 8%;">
-    <h1>Arriendo</h1>
-    <div class="tabla">
-        <table class="table table-striped">
-            <thead>
-                <tr> 
-                    <th scope="col">#</th>
-                    <th scope="col">Rut Reserva</th>
-                    <th scope="col">Espacio Reserva</th>
-                    <th scope="col">Hora Reserva</th>
-                    <th scope="col">Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let reserva of reservas">
-                    <th scope="row" >{{reserva.id}}</th>
-                    <td>{{reserva.rutCliente}}</td>
-                    <td>{{reserva.nombreEspacio}}</td>
-                    <td>{{reserva.horaReserva}}</td>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1"></label>
-                        </div>
-                    </td>
-                </tr>
-                
-            </tbody>
-        </table>
-    </div>
+    <h1>Arriendos / Reservas</h1>
+    <button class="btn" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Menu Principal</i></button>
     <div class="wrapper">
-
-        <button class="btn btn-info">Crear Reserva</button>
-        <button class="btn btn-info">Editar Reserva</button>
-        <button class="btn btn-info">Eliminar Reserva</button>
+            <div class="inputs">
+                    <label> Rut Cliente : <input id="rutCliente" type="text" placeholder="Rut Cliente"
+                                    [(ngModel)]="newReserva.rutCliente"></label>
+                    <label>id Producto : <input id="producto" type="number" placeholder="id Producto"
+                                    [(ngModel)]="newReserva.id_Producto"></label>
+                    <!-- <label>Fecha - Hora Reserva : <input id="timestamp" type="timestamp" placeholder="YYYY-MM-DD HH-MM-SS"
+                                    [(ngModel)]="newReserva.horaReserva"></label> -->
+                    
+            </div>
+            <div class="buttons">
+                    <button class="btn btn-success" (click)="addOrEditReserva()">Agregar o Editar Producto</button>
+                    <button *ngIf="newReserva.id !== 0" class="btn btn-danger" (click)="delete()" >Eliminar Producto</button>
+            </div>
     </div>
-    
+    <br>
+    <div class="table-responsive">
+            <table  class="table table-hover table-dark" >
+                    <tr>
+                            
+                            <th scope="col">ID</th>
+                            <th scope="col">Rut Cliente</th>
+                            <th scope="col">id Producto</th>
+                            <th scope="col">Fecha Reserva</th>                            
+                    </tr>
+                    <tbody>
+                            <tr *ngFor="let reserva of ArrayReservas" (click)="openForEdit(reserva)" [class.active]="newReserva == reserva">
+                                    <td>{{reserva.id}}</td>
+                                    <td>{{reserva.rutCliente}}</td>
+                                    <td>{{reserva.id_Producto}}</td>
+                                    <td>{{reserva.horaReserva}}</td>
+                                                                       
+                            </tr>
+                    </tbody>
+            </table>
+    </div>
+
 </div>

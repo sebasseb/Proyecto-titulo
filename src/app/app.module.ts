@@ -27,7 +27,8 @@ import { FinanzasComponent } from './components/finanzas/finanzas.component';
 import { ReservaFutbolitoComponent } from './components/reserva-futbolito/reserva-futbolito.component';
 
 import { TrabajadoresService } from './servicios/trabajadores.service';
-import { ProductosService} from './servicios/productos.service';
+import { ProductosService } from './servicios/productos.service';
+import { ReservasService } from './servicios/reservas.service';
 
 
 
@@ -64,7 +65,8 @@ import { ProductosService} from './servicios/productos.service';
   ],
   providers: [
     ProductosService,
-    TrabajadoresService
+    TrabajadoresService,
+    ReservasService
     
   ],
   bootstrap: [AppComponent]

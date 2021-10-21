@@ -68,26 +68,7 @@ export class TrabajadoresComponent implements OnInit {
     //console.log(this.ArrayTrabajadores)
   }
 
-  /*public buscarTrabajador(rut: string): boolean {
-
-    this.trabajadoresServicio.buscarTrabajador(rut).subscribe(res => {
-      console.log(res);
-      
-      if (res === null) {
-        console.log('false');
-        
-        return false;
-      }
-      console.log('true');
-      
-      return true;
-    }
-    
-    );
-    return false;
-
-
-  }*/
+ 
 
 
 
@@ -100,9 +81,7 @@ export class TrabajadoresComponent implements OnInit {
   public delete() {
     if (confirm('¿Seguro quieres eliminar esta entrada?')) {
       this.ArrayTrabajadores = this.ArrayTrabajadores.filter(elem => elem != this.newTrabajador);
-      this.trabajadoresServicio.eliminarTrabajador(this.newTrabajador.id).subscribe(
-        datos => { }
-      )
+      this.trabajadoresServicio.eliminarTrabajador(this.newTrabajador.id).subscribe();
 
 
 

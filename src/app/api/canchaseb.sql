@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2021 a las 09:45:19
+-- Tiempo de generación: 21-10-2021 a las 11:53:27
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -111,8 +111,19 @@ CREATE TABLE `reservas` (
   `id` int(11) NOT NULL,
   `rutCliente` varchar(11) NOT NULL,
   `id_Producto` int(11) NOT NULL,
-  `horaReserva` datetime NOT NULL
+  `horaReserva` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `reservas`
+--
+
+INSERT INTO `reservas` (`id`, `rutCliente`, `id_Producto`, `horaReserva`) VALUES
+(1, '19015485-8', 10, '2021-10-21 09:52:37'),
+(8, '19015485-8', 3, '2021-10-21 09:06:33'),
+(31, '19015485-8', 2, '2021-10-21 09:44:55'),
+(32, '19015485-8', 1, '2021-10-21 09:45:24'),
+(34, '19015485-8', 50, '2021-10-21 09:52:21');
 
 -- --------------------------------------------------------
 
@@ -205,6 +216,12 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `proveedores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajadores`

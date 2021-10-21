@@ -11,6 +11,7 @@ export class AgendaComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  /*
   newReserva = new Reserva();
 
 
@@ -47,5 +48,6 @@ export class AgendaComponent implements OnInit {
 
 
   }
-
+*/
 }
+

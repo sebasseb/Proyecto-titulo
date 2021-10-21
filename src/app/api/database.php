@@ -1,18 +1,21 @@
 <?php
 
-function connect(){
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
-  	 $dbname = 'canchaseb';
+function connect()
+{
 
-	 $connection = mysqli_connect('localhost', 'root', '', $dbname);
+	$dbname = 'canchaseb';
 
-	 if(!$connection){
-		echo "No se ha podido conectar con el servidor" ;
-	 }
+	$connection = mysqli_connect('localhost', 'root', '', $dbname);
 
-	 $db = mysqli_select_db($connection,$dbname);
+	if (!$connection) {
+		echo "No se ha podido conectar con el servidor";
+	}
+
+	$db = mysqli_select_db($connection, $dbname);
 
 
-	 return $connection;
+	return $connection;
 }
-
