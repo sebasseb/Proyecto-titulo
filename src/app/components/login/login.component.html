@@ -10,10 +10,11 @@
           </div>
       
           <!-- Login Form -->
-          <form [formGroup]="loginForm" (ngSubmit)="onlogin(loginForm.value)">
-            <input type="text" id="login" class="fadeIn second" placeholder="login" formControlName="usuario">
-            <input type="password" id="password" class="fadeIn third" placeholder="password" formControlName="password">
+          <form  [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <input type="text" id="rut" class="fadeIn second" name="rut" [(ngModel)]="trabajador.rut" placeholder="login" formControlName="rut" >
+            <input type="password" id="passwd" class="fadeIn third" name="passwd" [(ngModel)]="trabajador.passwd" placeholder="password" formControlName="passwd">
             <input type="submit" class="fadeIn fourth" value="Log In">
+            
           </form>
       
           <!-- Remind Passowrd -->

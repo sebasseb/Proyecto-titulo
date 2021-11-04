@@ -32,6 +32,7 @@ const routes: Routes = [
   { path: 'trabajadores', component: TrabajadoresComponent },
   { path: 'finanzas', component: FinanzasComponent },
   { path: 'futbolito', component: ReservaFutbolitoComponent },
+  
 
 
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },

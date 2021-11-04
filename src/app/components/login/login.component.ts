@@ -3,27 +3,58 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from '../../servicios/api.service';
 import { LoginI } from "../../modelos/login.interface";
 
+import { Router } from '@angular/router';
+import { AuthService } from '../../servicios/auth.service';
+
+
+import { TrabajadoresService } from 'src/app/servicios/trabajadores.service';
+import { Trabajador } from 'src/app/class/trabajador';
+import { Observable } from 'rxjs';
+import { HttpResponse } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.less']
+  styleUrls: ['./login.component.less'],
+  providers: [AuthService]
 })
 export class LoginComponent implements OnInit {
+  trabajador: Trabajador = new Trabajador;
+  data: any;
 
   loginForm = new FormGroup({
-    usuario: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    rut: new FormControl('', Validators.required),
+    passwd: new FormControl('', Validators.required)
   })
 
-  constructor(private api: ApiService) { }
+ 
+  
+   
+  constructor(private auth : AuthService, private cookieService : CookieService ) { }
 
   ngOnInit(): void {
+    
+    
   }
 
-  onlogin(form: LoginI) {
-    this.api.loginByUser(form).subscribe(data => {
-      console.log(data);
-    })
+  onLogin() {
+   // this.buscarTrabajador(this.loginForm.controls['usuario'].value);
+    this.auth.login(this.trabajador).subscribe(
+      (data) => {
+        this.cookieService.set('token', data.toString());
+       //
+        
+        
+      }
+      
+    );
+     
+    
   }
 
+  
+
+  
 }

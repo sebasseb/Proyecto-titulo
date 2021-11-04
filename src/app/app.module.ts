@@ -11,7 +11,7 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { GaleriaComponent } from './components/galeria/galeria.component';
 import { ReservaComponent } from './components/reserva/reserva.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +29,9 @@ import { ReservaFutbolitoComponent } from './components/reserva-futbolito/reserv
 import { TrabajadoresService } from './servicios/trabajadores.service';
 import { ProductosService } from './servicios/productos.service';
 import { ReservasService } from './servicios/reservas.service';
+import { AuthService } from './servicios/auth.service';
+import { AuthInterceptorService } from './servicios/auth-interceptor.service';
+
 
 
 
@@ -66,7 +69,10 @@ import { ReservasService } from './servicios/reservas.service';
   providers: [
     ProductosService,
     TrabajadoresService,
-    ReservasService
+    ReservasService,
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+    
     
   ],
   bootstrap: [AppComponent]
