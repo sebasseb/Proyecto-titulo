@@ -1,24 +1,43 @@
-label {
-  color: whitesmoke;
+h1{
+  position: relative;
+  right: 5%;
+}
+
+label, p {
+  color: white;
   margin-right: 10px;
 }
 
+#btn-Back{
+  position: relative;
+  right: 50%;
+  
+}
 .wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 0px;
-}
+    display: grid;
+    grid-template-columns:  1fr;
+    margin: 0px;
+    gap : 1em;
+    padding-left: 15%;
+    position: relative;
+    right: 10%;
+  }
+  
+  .inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    
+    gap: 1em;
+  }
 
-.inputs {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
+  .buttons{
+      position: relative;
+      left: 15%;
+      padding-left: 15%;
+      padding-top: 2%;
+      gap: 10%;
+  }
 
-button {
-  gap: 20px;
-  width: 100px;
-  height: 100px;
-}
 
 .active {
   background-color: #666;

@@ -1,40 +1,42 @@
 <div class="container" style="padding-top: 8%;">
         <h1>Inventario</h1>
-        <button class="btn" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Menu Principal</i></button>
         <div class="wrapper">
+                <button class="btn" id="btn-Back" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Menu
+                        Principal</i></button>
+                <p>Inserte datos para llenar el inventario: </p>
                 <div class="inputs">
-                        <label>nombre producto : <input id="nombre" type="text" placeholder="Nombre Producto"
-                                        [(ngModel)]="newProducto.nombre"></label>
-                        <label>cantidad : <input id="cantidad" type="number" placeholder="Cantidad Producto"
-                                        [(ngModel)]="newProducto.stock"></label>
-                        <label>Proveedor : <input id="proveedor" type="number" placeholder="Nombre Proveedor"
-                                        [(ngModel)]="newProducto.id_proveedor"></label>
-                        <label>Precio : <input id="precio" type="number" placeholder="Precio"
-                                        [(ngModel)]="newProducto.valorProducto"></label>
+                        <input id="nombre" type="text" placeholder="Nombre Producto" [(ngModel)]="newProducto.nombre">
+                        <input id="cantidad" type="number" placeholder="Cantidad Producto"
+                                [(ngModel)]="newProducto.stock">
+                        <input id="proveedor" type="number" placeholder="Nombre Proveedor"
+                                [(ngModel)]="newProducto.id_proveedor">
+                        <input id="precio" type="number" placeholder="Precio" [(ngModel)]="newProducto.valorProducto">
                 </div>
                 <div class="buttons">
                         <button class="btn btn-success" (click)="addOrEditProducto()">Agregar o Editar Producto</button>
-                        <button *ngIf="newProducto.id !== 0" class="btn btn-danger" (click)="delete()" >Eliminar Producto</button>
+                        <button *ngIf="newProducto.id !== 0" class="btn btn-danger" (click)="delete()">Eliminar
+                                Producto</button>
                 </div>
         </div>
         <br>
         <div class="table-responsive">
-                <table  class="table table-hover table-dark" >
+                <table class="table table-hover table-dark">
                         <tr>
-                                
+
                                 <th scope="col">ID</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">id Proveedor</th>
                                 <th scope="col">Stock</th>
-                                <th scope="col">Precio</th>                            
+                                <th scope="col">Precio</th>
                         </tr>
                         <tbody>
-                                <tr *ngFor="let producto of ArrayProductos" (click)="openForEdit(producto)" [class.active]="newProducto == producto">
+                                <tr *ngFor="let producto of ArrayProductos" (click)="openForEdit(producto)"
+                                        [class.active]="newProducto == producto">
                                         <td>{{producto.id}}</td>
                                         <td>{{producto.nombre}}</td>
                                         <td>{{producto.id_proveedor}}</td>
                                         <td>{{producto.stock}}</td>
-                                        <td>{{producto.valorProducto}}</td>                                    
+                                        <td>{{producto.valorProducto}}</td>
                                 </tr>
                         </tbody>
                 </table>

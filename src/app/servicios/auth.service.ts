@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Trabajador } from '../class/trabajador';
-import { JwtResponseI } from '../interface/jwt-response';
+
 import { tap } from 'rxjs/operators';
 import { Observable, BehaviorSubject } from 'rxjs';
+
+import { LoginI } from '../modelos/login.interface';
+import { ResponseI } from '../modelos/response.interface';
 
 @Injectable()
 export class AuthService {
@@ -11,8 +14,12 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) { }
 
-  login(trabajador: Trabajador) {
-    return this.httpClient.post(`${this.URL}buscarTrabajador.php`,JSON.stringify(trabajador));
+  login(login: LoginI) {
+    
+    return this.httpClient.post<any>(`${this.URL}buscarTrabajador.php`, JSON.stringify(login), {
+      withCredentials: true,
+      observe : 'response'
+    });
   }
 
   

@@ -5,8 +5,8 @@
             <div class="inputs">
                     <label> Rut Cliente : <input id="rutCliente" type="text" placeholder="Rut Cliente"
                                     [(ngModel)]="newReserva.rutCliente"></label>
-                    <label>id Producto : <input id="producto" type="number" placeholder="id Producto"
-                                    [(ngModel)]="newReserva.id_Producto"></label>
+                    <label>Producto : <input id="producto" type="number" placeholder="Producto"
+                                    [(ngModel)]="newReserva.producto"></label>
                     <!-- <label>Fecha - Hora Reserva : <input id="timestamp" type="timestamp" placeholder="YYYY-MM-DD HH-MM-SS"
                                     [(ngModel)]="newReserva.horaReserva"></label> -->
                     
@@ -23,14 +23,14 @@
                             
                             <th scope="col">ID</th>
                             <th scope="col">Rut Cliente</th>
-                            <th scope="col">id Producto</th>
+                            <th scope="col">Producto</th>
                             <th scope="col">Fecha Reserva</th>                            
                     </tr>
                     <tbody>
                             <tr *ngFor="let reserva of ArrayReservas" (click)="openForEdit(reserva)" [class.active]="newReserva == reserva">
                                     <td>{{reserva.id}}</td>
                                     <td>{{reserva.rutCliente}}</td>
-                                    <td>{{reserva.id_Producto}}</td>
+                                    <td>{{reserva.producto}}</td>
                                     <td>{{reserva.horaReserva}}</td>
                                                                        
                             </tr>

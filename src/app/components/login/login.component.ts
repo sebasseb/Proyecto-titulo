@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ApiService } from '../../servicios/api.service';
+
 import { LoginI } from "../../modelos/login.interface";
 
 import { Router } from '@angular/router';
@@ -9,9 +9,10 @@ import { AuthService } from '../../servicios/auth.service';
 
 import { TrabajadoresService } from 'src/app/servicios/trabajadores.service';
 import { Trabajador } from 'src/app/class/trabajador';
-import { Observable } from 'rxjs';
-import { HttpResponse } from '@angular/common/http';
+import { Observable, Subscription } from 'rxjs';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+
 
 
 @Component({
@@ -20,7 +21,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./login.component.less'],
   providers: [AuthService]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   trabajador: Trabajador = new Trabajador;
   data: any;
 
@@ -29,32 +30,65 @@ export class LoginComponent implements OnInit {
     passwd: new FormControl('', Validators.required)
   })
 
- 
-  
-   
-  constructor(private auth : AuthService, private cookieService : CookieService ) { }
+  subRef$!: Subscription;
+
+
+  constructor(
+    private auth: AuthService,
+    private cookieService: CookieService,
+    private router: Router
+
+  ) { }
+  ngOnDestroy(): void {
+    if (this.subRef$) {
+      this.subRef$.unsubscribe();
+    }
+  }
 
   ngOnInit(): void {
-    
-    
+
+
   }
+
+ 
 
   onLogin() {
-   // this.buscarTrabajador(this.loginForm.controls['usuario'].value);
-    this.auth.login(this.trabajador).subscribe(
-      (data) => {
-        this.cookieService.set('token', data.toString());
-       //
-        
-        
-      }
-      
-    );
-     
-    
+    // this.buscarTrabajador(this.loginForm.controls['usuario'].value);
+
+    const loginUsuario: LoginI = {
+      usuario: this.loginForm.value.rut,
+      password: this.loginForm.value.passwd,
+    };
+
+    this.subRef$ = this.auth.login(loginUsuario).subscribe(
+      res => {
+        console.log(res.headers.get('set-cookie'));
+        if (res.body !== 'null') {
+          //const token: string | null = res.headers.get('token');
+          //console.log(token);
+          
+          //console.log(res.headers.getAll('set-cookie'));
+          
+          
+          this.router.navigate(['/menu-principal']);
+
+
+        } else {
+          alert('Login incorrecto');
+          this.router.navigate(['/login']);
+        }
+        //this.router.navigate(['/menu-principal']);
+
+          
+
+      },
+      err => {
+        console.log('Error Login', err);
+      });
+
   }
 
-  
 
-  
+
+
 }
