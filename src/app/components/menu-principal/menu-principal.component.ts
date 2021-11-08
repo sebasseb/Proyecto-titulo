@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-menu-principal',
@@ -10,7 +11,7 @@ export class MenuPrincipalComponent implements OnInit {
   
   
 
-  constructor(private http : HttpClient) { }
+  constructor(private cookieService: CookieService) { }
 
   ngOnInit(): void {
     //let httpHeaders: HttpHeaders = new HttpHeaders();
@@ -22,6 +23,11 @@ export class MenuPrincipalComponent implements OnInit {
     
     
 
+  }
+
+  delCookies() {
+    this.cookieService.delete('token');
+    
   }
 
 }

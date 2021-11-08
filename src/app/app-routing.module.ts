@@ -15,28 +15,84 @@ import { InventarioComponent } from './components/inventario/inventario.componen
 import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
 import { FinanzasComponent } from './components/finanzas/finanzas.component';
 import { ReservaFutbolitoComponent } from './components/reserva-futbolito/reserva-futbolito.component';
+import { GuardLoginGuard } from './api/Login/guard-login.guard';
 
 
 const routes: Routes = [
-  { path: 'inicio', component: CarouselComponent },
-  { path: 'nosotros', component: NosotrosComponent },
-  { path: 'servicios', component: ServiciosComponent },
-  { path: 'contacto', component: ContactoComponent },
-  { path: 'galeria', component: GaleriaComponent },
-  { path: 'reservas', component: ReservaComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'menu-principal', component: MenuPrincipalComponent },
-  { path: 'arriendo', component: ArriendoComponent },
-  { path: 'venta', component: VentaComponent },
-  { path: 'inventario', component: InventarioComponent },
-  { path: 'trabajadores', component: TrabajadoresComponent },
-  { path: 'finanzas', component: FinanzasComponent },
-  { path: 'futbolito', component: ReservaFutbolitoComponent },
-  
+  {
+    path: 'inicio',
+    component: CarouselComponent
+  },
+  {
+    path: 'nosotros',
+    component: NosotrosComponent
+  },
+  {
+    path: 'servicios',
+    component: ServiciosComponent
+  },
+  {
+    path: 'contacto',
+    component: ContactoComponent
+  },
+  {
+    path: 'galeria',
+    component: GaleriaComponent
+  },
+  {
+    path: 'reservas',
+    component: ReservaComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'menu-principal',
+    component: MenuPrincipalComponent,
+    canActivate: [GuardLoginGuard]
+  },
+  {
+    path: 'arriendo',
+    component: ArriendoComponent,
+    canActivate: [GuardLoginGuard]
+  },
+  {
+    path: 'venta',
+    component: VentaComponent,
+    canActivate: [GuardLoginGuard]
+  },
+  {
+    path: 'inventario',
+    component: InventarioComponent,
+    canActivate: [GuardLoginGuard]
+  },
+  {
+    path: 'trabajadores',
+    component: TrabajadoresComponent,
+    canActivate: [GuardLoginGuard]
+  },
+  {
+    path: 'finanzas',
+    component: FinanzasComponent,
+    canActivate: [GuardLoginGuard]
+  },
+  {
+    path: 'futbolito',
+    component: ReservaFutbolitoComponent
+  },
 
 
-  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
-  { path: "**", redirectTo: "/inicio" }
+
+  {
+    path: '',
+    redirectTo: '/inicio',
+    pathMatch: 'full'
+  },
+  {
+    path: "**",
+    redirectTo: "/inicio"
+  }
 ];
 
 @NgModule({

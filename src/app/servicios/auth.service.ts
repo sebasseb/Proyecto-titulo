@@ -17,8 +17,7 @@ export class AuthService {
   login(login: LoginI) {
     
     return this.httpClient.post<any>(`${this.URL}buscarTrabajador.php`, JSON.stringify(login), {
-      withCredentials: true,
-      observe : 'response'
+      observe: 'response'
     });
   }
 

@@ -31,6 +31,7 @@ import { ProductosService } from './servicios/productos.service';
 import { ReservasService } from './servicios/reservas.service';
 import { AuthService } from './servicios/auth.service';
 import { AuthInterceptorService } from './servicios/auth-interceptor.service';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -71,6 +72,7 @@ import { AuthInterceptorService } from './servicios/auth-interceptor.service';
     TrabajadoresService,
     ReservasService,
     AuthService,
+    CookieService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
     
     

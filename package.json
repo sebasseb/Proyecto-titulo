@@ -17,12 +17,7 @@
     "@angular/forms": "~12.2.0",
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
-<<<<<<< HEAD
-    "@angular/router": "~12.2.0",
-    "@auth0/angular-jwt": "^5.0.2",
-=======
     "@angular/router": "^12.2.13",
->>>>>>> 710bdea2f4f14d63c26ae2113fb5cd6a134bc833
     "@fullcalendar/angular": "^5.9.0",
     "@fullcalendar/daygrid": "^5.9.0",
     "@popperjs/core": "^2.10.1",

@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   subRef$!: Subscription;
 
 
+
   constructor(
     private auth: AuthService,
     private cookieService: CookieService,
@@ -43,6 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (this.subRef$) {
       this.subRef$.unsubscribe();
     }
+    
   }
 
   ngOnInit(): void {
@@ -50,7 +52,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   }
 
- 
+
 
   onLogin() {
     // this.buscarTrabajador(this.loginForm.controls['usuario'].value);
@@ -62,14 +64,18 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.subRef$ = this.auth.login(loginUsuario).subscribe(
       res => {
-        console.log(res.headers.get('set-cookie'));
+        //console.log(res);
         if (res.body !== 'null') {
-          //const token: string | null = res.headers.get('token');
-          //console.log(token);
+
+          const dateNow = new Date();
+          //dateNow.setMinutes(dateNow.getMinutes() + 1);
+          dateNow.setHours(dateNow.getHours() + 1);
           
-          //console.log(res.headers.getAll('set-cookie'));
-          
-          
+          this.cookieService.set('token', res.body.token,dateNow);
+          console.log(res.body.token);
+
+
+
           this.router.navigate(['/menu-principal']);
 
 
@@ -79,12 +85,15 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
         //this.router.navigate(['/menu-principal']);
 
-          
+
 
       },
       err => {
         console.log('Error Login', err);
       });
+
+
+
 
   }
 
@@ -92,3 +101,5 @@ export class LoginComponent implements OnInit, OnDestroy {
 
 
 }
+
+

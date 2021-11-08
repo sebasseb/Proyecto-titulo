@@ -8,7 +8,7 @@
   $arrayRes = json_decode($json,true);
 
   $rutCliente =  $arrayRes['rutCliente'];
-  $id_Producto = $arrayRes['id_Producto'];
+  $producto = $arrayRes['producto'];
  
   
 
@@ -17,8 +17,8 @@
   $conexion = connect(); // CREA LA CONEXION
   
   // REALIZA LA QUERY A LA DB
-  mysqli_query($conexion, "INSERT INTO reservas(rutCliente, id_Producto) VALUES
-                  ('$rutCliente','$id_Producto')"); 
+  mysqli_query($conexion, "INSERT INTO reservas(rutCliente, producto) VALUES
+                  ('$rutCliente','$producto')"); 
   
   // RECORRE EL RESULTADO Y LO GUARDA EN UN ARRAY
   
