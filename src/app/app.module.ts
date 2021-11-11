@@ -32,6 +32,7 @@ import { ReservasService } from './servicios/reservas.service';
 import { AuthService } from './servicios/auth.service';
 import { AuthInterceptorService } from './servicios/auth-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
+import { ReservaFutboltenisComponent } from './components/reserva-futboltenis/reserva-futboltenis.component';
 
 
 
@@ -55,7 +56,8 @@ import { CookieService } from 'ngx-cookie-service';
     AgendaComponent,
     TrabajadoresComponent,
     FinanzasComponent,
-    ReservaFutbolitoComponent
+    ReservaFutbolitoComponent,
+    ReservaFutboltenisComponent
 
   ],
   imports: [
