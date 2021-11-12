@@ -11,6 +11,9 @@
   $nombre = $arrayRes['nombre'];
   $direccion = $arrayRes['direccion'];
   $fono = $arrayRes['fono'];
+  $passwd = $arrayRes['passwd'];
+  $salario = $arrayRes['salario'];
+  $isAdmin  = $arrayRes['isAdmin'];
   
 
   require("../database.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
@@ -18,8 +21,8 @@
   $conexion = connect(); // CREA LA CONEXION
   
   // REALIZA LA QUERY A LA DB
-  mysqli_query($conexion, "INSERT INTO trabajadores(rut, nombre, direccion, fono) VALUES
-                  ('$rut','$nombre', '$direccion','$fono')");    
+  mysqli_query($conexion, "INSERT INTO trabajadores(rut, nombre, direccion, fono, passwd, salario,isAdmin) VALUES
+                  ('$rut','$nombre', '$direccion','$fono','$passwd','$salario','$isAdmin')");    
   
   class Result {}
 

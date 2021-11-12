@@ -27,6 +27,11 @@ require("../database.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
 $conexion = connect(); // CREA LA CONEXION
 
 // REALIZA LA QUERY A LA DB
-mysqli_query($conexion, "UPDATE `productos` SET `nombre`='$nombre',`valorProducto`='$valorProducto',`stock`='$stock' WHERE `id`='$id'");
+mysqli_query($conexion, "UPDATE `productos` SET
+ `nombre`='$nombre',
+ `valorProducto`='$valorProducto',
+ `stock`='$stock' 
+ 
+ WHERE `id`='$id'");
 
 header('Content-Type: application/json');

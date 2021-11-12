@@ -6,9 +6,9 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 function connect()
 {
 
-	$dbname = 'teamsmar_canchaseb';
+	$dbname = 'canchaseb';
 
-	$connection = mysqli_connect("162.241.61.65", "teamsmar_admin", "partiboi69", $dbname);
+	$connection = mysqli_connect('localhost', 'root', '', $dbname);
 
 	if (!$connection) {
 		echo "No se ha podido conectar con el servidor";

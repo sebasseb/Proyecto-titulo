@@ -5,9 +5,12 @@ export class Trabajador {
   nombre!: string;
   direccion!: string;
   fono!: number;
+  salario!: number;
+  isAdmin: boolean = false;
 
   constructor() {
-    this.id = 0 ;
+    this.id = 0;
+ 
     
   }
   

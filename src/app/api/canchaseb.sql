@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2021 a las 11:53:27
+-- Tiempo de generación: 12-11-2021 a las 04:44:32
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -78,7 +78,8 @@ INSERT INTO `productos` (`id`, `nombre`, `valorProducto`, `stock`, `id_proveedor
 (1, 'Cancha Futbolito', 12000, 1, 1),
 (2, 'Cancha Fut-Tenis', 10000, 1, 1),
 (3, 'Gatorade', 1500, 50, 2),
-(4, 'Cereal Bar', 500, 100, 3);
+(4, 'Cereal Bar', 500, 100, 3),
+(15, 'Triton', 780, 50, 1);
 
 -- --------------------------------------------------------
 
@@ -109,21 +110,20 @@ INSERT INTO `proveedores` (`id`, `nombre`, `telefono`) VALUES
 
 CREATE TABLE `reservas` (
   `id` int(11) NOT NULL,
-  `rutCliente` varchar(11) NOT NULL,
-  `id_Producto` int(11) NOT NULL,
-  `horaReserva` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `rut` varchar(11) NOT NULL,
+  `nombre` varchar(40) NOT NULL,
+  `producto` int(11) NOT NULL,
+  `fechaReserva` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `reservas`
 --
 
-INSERT INTO `reservas` (`id`, `rutCliente`, `id_Producto`, `horaReserva`) VALUES
-(1, '19015485-8', 10, '2021-10-21 09:52:37'),
-(8, '19015485-8', 3, '2021-10-21 09:06:33'),
-(31, '19015485-8', 2, '2021-10-21 09:44:55'),
-(32, '19015485-8', 1, '2021-10-21 09:45:24'),
-(34, '19015485-8', 50, '2021-10-21 09:52:21');
+INSERT INTO `reservas` (`id`, `rut`, `nombre`, `producto`, `fechaReserva`) VALUES
+(5, '19015485-8', 'Sebastian', 1, '2021-11-09 19:00:00'),
+(6, '19015485-8', 'Sebastian', 1, '2021-11-09 16:00:00'),
+(7, '12345678-9', 'Roberto', 1, '2021-11-09 15:00:00');
 
 -- --------------------------------------------------------
 
@@ -134,21 +134,22 @@ INSERT INTO `reservas` (`id`, `rutCliente`, `id_Producto`, `horaReserva`) VALUES
 CREATE TABLE `trabajadores` (
   `id` int(11) NOT NULL,
   `rut` varchar(11) NOT NULL,
+  `passwd` varchar(11) DEFAULT NULL,
   `nombre` varchar(100) NOT NULL,
   `direccion` varchar(100) NOT NULL,
   `fono` int(11) NOT NULL,
-  `isAdmin` tinyint(1) NOT NULL
+  `isAdmin` tinyint(1) NOT NULL,
+  `salario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `trabajadores`
 --
 
-INSERT INTO `trabajadores` (`id`, `rut`, `nombre`, `direccion`, `fono`, `isAdmin`) VALUES
-(1, '19015485-8', 'Sebastián Escobar', 'Pje Rio bueno 68', 940340950, 1),
-(2, '5463217-8', 'Ramon Ramirez', 'Pje Limarí 68, Villa Alemana', 924638514, 0),
-(44, '17945696', 'Carlos Cubillos', 'valparaiso', 912345678, 0),
-(119, 'sdfsdf', 'a', 'q', 1, 0);
+INSERT INTO `trabajadores` (`id`, `rut`, `passwd`, `nombre`, `direccion`, `fono`, `isAdmin`, `salario`) VALUES
+(1, '19015485-8', '123456', 'Sebastián Escobar', 'Pje Rio bueno 68', 940340950, 1, 700000),
+(2, '12345678-9', '123456', 'Ramon Ramirez', 'Pje Limarí 68, Villa Alemana', 924638514, 0, 400000),
+(125, '98765432-1', '123456789', 'Charlyboi96', 'Barón', 912345678, 1, 750000);
 
 --
 -- Índices para tablas volcadas
@@ -186,7 +187,8 @@ ALTER TABLE `proveedores`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_rutCliente2` (`rutCliente`);
+  ADD UNIQUE KEY `fechaReserva` (`fechaReserva`),
+  ADD KEY `producto` (`producto`);
 
 --
 -- Indices de la tabla `trabajadores`
@@ -209,7 +211,7 @@ ALTER TABLE `orden_compra`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -221,13 +223,13 @@ ALTER TABLE `proveedores`
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `trabajadores`
 --
 ALTER TABLE `trabajadores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- Restricciones para tablas volcadas
@@ -251,7 +253,7 @@ ALTER TABLE `productos`
 -- Filtros para la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  ADD CONSTRAINT `FK_rutCliente2` FOREIGN KEY (`rutCliente`) REFERENCES `clientes` (`rut`);
+  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`producto`) REFERENCES `productos` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

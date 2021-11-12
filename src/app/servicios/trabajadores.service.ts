@@ -29,6 +29,11 @@ export class TrabajadoresService {
   }
 
   editarTrabajador(trabajador: Trabajador) {
-    return this.http.post(`${this.URL}editarTrabajadores.php`, JSON.stringify(trabajador));
+   // console.log('Servicio Trabajador:',trabajador);
+    
+    return this.http.post(`${this.URL}editarTrabajadores.php`, JSON.stringify(trabajador),{observe: 'response'});
   }
+
+
+ 
 }

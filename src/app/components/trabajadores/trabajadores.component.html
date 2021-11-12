@@ -3,17 +3,23 @@
         <div class="wrapper">
                 <button class="btn" id="btn-Back" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Menu
                                 Principal</i></button>
+
                 <div class="inputs">
+
                         <input id="rut" type="text" placeholder="Rut del Trabajador" [(ngModel)]="newTrabajador.rut">
-                        <br>
+
                         <input id="nombre" type="text" placeholder="Trabajador" [(ngModel)]="newTrabajador.nombre">
-                        <br>
+
                         <input id="direccion" type="text" placeholder="Domicilio" [(ngModel)]="newTrabajador.direccion">
-                        <br>
+
                         <input id="telefono" type="number" placeholder="numero de contacto"
                                 [(ngModel)]="newTrabajador.fono">
+                        <input type="text" id="salario" placeholder="Salario" [(ngModel)]="newTrabajador.salario">
+                        <input type="password" id="passwd" placeholder="Contraseña" [(ngModel)]="newTrabajador.passwd">
+                
+                        Administrador?
                         <br>
-
+                        <input type="checkbox" id="admin" placeholder="Es Admin?" [(ngModel)]="newTrabajador.isAdmin">
                 </div>
                 <div class="buttons">
                         <button class="btn btn-success" (click)="addOrEditTrabajador()">Agregar o Editar

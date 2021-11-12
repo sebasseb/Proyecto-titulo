@@ -1,4 +1,33 @@
 <div class="container" style="padding-top: 8%;">
-    <p>finanzas works!</p>
     <button class="btn" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Menu Principal</i></button>
+    <div class="wrapper">
+        <div class="inputs">
+            <input type="text" placeholder="Rut" [(ngModel)]="newTrabajador.rut" id="rut" readonly="readonly">
+            <input type="text" placeholder="Nombre" [(ngModel)]="newTrabajador.nombre" id="nombre" readonly="readonly">
+            <input type="text" placeholder="Salario" [(ngModel)]="newTrabajador.salario">
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover table-dark">
+                <tr>
+
+                    <th scope="col">id</th>
+                    <th scope="col">RUT</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Salario</th>
+                </tr>
+                <tbody>
+                    <tr *ngFor="let trabajador of ArrayTrabajadores" (click)="openForEdit(trabajador)"
+                        [class.active]="newTrabajador == trabajador">
+                        <td>{{trabajador.id}}</td>
+                        <td>{{trabajador.rut}}</td>
+                        <td>{{trabajador.nombre}}</td>
+                        <td>{{trabajador.salario}}</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="btn btn-success" (click)="editar()">Editar Trabajador</button>
+    </div>
+
 </div>

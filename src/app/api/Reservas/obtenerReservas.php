@@ -4,10 +4,18 @@
   
   require("../database.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
 
+  //$json = file_get_contents('php://input'); // RECIBE EL JSON DE ANGULAR
+
+
+  //$arrayRes = json_decode($json,true);
+
+ // $dia = $arrayRes['dia'];
+
+
   $link = connect();
   
   // REALIZA LA QUERY A LA DB
-  $registros = mysqli_query($link, "SELECT * FROM reservas");
+  $registros = mysqli_query($link, "SELECT * FROM reservas" );
   
   // RECORRE EL RESULTADO Y LO GUARDA EN UN ARRAY
   while ($resultado = mysqli_fetch_array($registros))  

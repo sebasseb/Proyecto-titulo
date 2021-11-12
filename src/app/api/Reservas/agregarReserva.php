@@ -9,6 +9,10 @@
 
   $rutCliente =  $arrayRes['rutCliente'];
   $producto = $arrayRes['producto'];
+  $horaReserva = $arrayRes['horaReserva'];
+  $dia = $arrayRes['dia'];
+  $nombre = $arrayRes['nombre'];
+  $mes = date('F');
  
   
 
@@ -17,8 +21,8 @@
   $conexion = connect(); // CREA LA CONEXION
   
   // REALIZA LA QUERY A LA DB
-  mysqli_query($conexion, "INSERT INTO reservas(rutCliente, producto) VALUES
-                  ('$rutCliente','$producto')"); 
+  mysqli_query($conexion, "INSERT INTO reservas(rutCliente, producto, horaReserva, dia, mes, nombre) VALUES
+                  ('$rutCliente','$producto','$horaReserva','$dia','$mes','')"); 
   
   // RECORRE EL RESULTADO Y LO GUARDA EN UN ARRAY
   

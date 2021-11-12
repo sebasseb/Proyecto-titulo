@@ -27,7 +27,7 @@ export class TrabajadoresComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.newTrabajador = new Trabajador();
     this.obtenerTrabajadores();
   }
 
