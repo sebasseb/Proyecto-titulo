@@ -17,11 +17,7 @@
 }*/
 .carousel > .carousel-inner > .carousel-item > img {
   width: 50%;
-  margin-left: 5%;
 }
 .carousel-item {
   background: transparent;
-}
-.p {
-  text-anchor: middle;
 }
