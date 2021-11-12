@@ -6,12 +6,12 @@ export class Trabajador {
   direccion!: string;
   fono!: number;
   salario!: number;
-  isAdmin: boolean = false;
+  isAdmin!: boolean ;
 
   constructor() {
     this.id = 0;
- 
-    
+    this.salario = 0;
+    this.isAdmin = false;
   }
   
 }

@@ -14,12 +14,12 @@
 
                         <input id="telefono" type="number" placeholder="numero de contacto"
                                 [(ngModel)]="newTrabajador.fono">
-                        <input type="text" id="salario" placeholder="Salario" [(ngModel)]="newTrabajador.salario">
+                        <input type="text" value="" id="salario" placeholder="Salario" [(ngModel)]="newTrabajador.salario" readonly="readonly">
                         <input type="password" id="passwd" placeholder="Contraseña" [(ngModel)]="newTrabajador.passwd">
                 
                         Administrador?
                         <br>
-                        <input type="checkbox" id="admin" placeholder="Es Admin?" [(ngModel)]="newTrabajador.isAdmin">
+                        <input type="checkbox"  value="false" id="admin" placeholder="Es Admin?" [(ngModel)]="newTrabajador.isAdmin">
                 </div>
                 <div class="buttons">
                         <button class="btn btn-success" (click)="addOrEditTrabajador()">Agregar o Editar

@@ -1,6 +1,7 @@
 {
   "/canchaseb/src/app/api/*":{
-    "target" : "162.241.61.69:3306",
+    "target" : "http://localhost:80",
+ 
     "secure" : false,
     "changeOrigin": true,
     "logLevel" : "debug"

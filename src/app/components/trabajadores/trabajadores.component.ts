@@ -29,6 +29,9 @@ export class TrabajadoresComponent implements OnInit {
   ngOnInit(): void {
     this.newTrabajador = new Trabajador();
     this.obtenerTrabajadores();
+
+   
+    
   }
 
   public obtenerTrabajadores() {
@@ -74,6 +77,11 @@ export class TrabajadoresComponent implements OnInit {
 
   public openForEdit(trabajador: Trabajador) {
     this.newTrabajador = trabajador;
+    if (1) {
+      this.newTrabajador.isAdmin = trabajador.isAdmin;
+    }
+    console.log(this.newTrabajador.isAdmin);
+    
  
 
   }
