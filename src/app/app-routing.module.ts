@@ -15,6 +15,7 @@ import { InventarioComponent } from './components/inventario/inventario.componen
 import { TrabajadoresComponent } from './components/trabajadores/trabajadores.component';
 import { FinanzasComponent } from './components/finanzas/finanzas.component';
 import { ReservaFutbolitoComponent } from './components/reserva-futbolito/reserva-futbolito.component';
+import { ReservaFutboltenisComponent } from './components/reserva-futboltenis/reserva-futboltenis.component';
 import { GuardLoginGuard } from './api/Login/guard-login.guard';
 
 
@@ -80,6 +81,10 @@ const routes: Routes = [
   {
     path: 'futbolito',
     component: ReservaFutbolitoComponent
+  },
+  {
+    path: 'futbol-tenis',
+    component:ReservaFutboltenisComponent
   },
 
 
