@@ -11,7 +11,6 @@
                         <input id="nombre" type="text" placeholder="Trabajador" [(ngModel)]="newTrabajador.nombre">
 
                         <input id="direccion" type="text" placeholder="Domicilio" [(ngModel)]="newTrabajador.direccion">
-
                         <input id="telefono" type="number" placeholder="numero de contacto"
                                 [(ngModel)]="newTrabajador.fono">
                         <input type="text" value="" id="salario" placeholder="Salario" [(ngModel)]="newTrabajador.salario" readonly="readonly">
@@ -19,7 +18,8 @@
                 
                         Administrador?
                         <br>
-                        <input type="checkbox"  value="false" id="admin" placeholder="Es Admin?" [(ngModel)]="newTrabajador.isAdmin">
+                        <input type="checkbox"   id="admin" placeholder="Es Admin?" [(ngModel)]="newTrabajador.isAdmin">
+                        <input id="salario" type="number" placeholder="Salario del Trabajador" [(ngModel)]="newTrabajador.salario">
                 </div>
                 <div class="buttons">
                         <button class="btn btn-success" (click)="addOrEditTrabajador()">Agregar o Editar

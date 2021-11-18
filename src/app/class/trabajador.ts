@@ -10,7 +10,6 @@ export class Trabajador {
 
   constructor() {
     this.id = 0;
-    this.salario = 0;
     this.isAdmin = false;
   }
   

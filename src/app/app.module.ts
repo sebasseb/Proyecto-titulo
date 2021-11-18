@@ -33,6 +33,9 @@ import { AuthService } from './servicios/auth.service';
 import { AuthInterceptorService } from './servicios/auth-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ReservaFutboltenisComponent } from './components/reserva-futboltenis/reserva-futboltenis.component';
+import { DatepickerComponent } from './components/datepicker/datepicker.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 
 
 
@@ -57,7 +60,8 @@ import { ReservaFutboltenisComponent } from './components/reserva-futboltenis/re
     TrabajadoresComponent,
     FinanzasComponent,
     ReservaFutbolitoComponent,
-    ReservaFutboltenisComponent
+    ReservaFutboltenisComponent,
+    DatepickerComponent
 
   ],
   imports: [
@@ -66,7 +70,10 @@ import { ReservaFutboltenisComponent } from './components/reserva-futboltenis/re
     FormsModule, ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    DlDateTimeDateModule,  // <--- Determines the data type of the model
+    DlDateTimePickerModule
     
   ],
   providers: [
