@@ -3,23 +3,17 @@
         <div class="wrapper">
                 <button class="btn" id="btn-Back" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Menu
                                 Principal</i></button>
-
                 <div class="inputs">
-
                         <input id="rut" type="text" placeholder="Rut del Trabajador" [(ngModel)]="newTrabajador.rut">
-
                         <input id="nombre" type="text" placeholder="Trabajador" [(ngModel)]="newTrabajador.nombre">
-
                         <input id="direccion" type="text" placeholder="Domicilio" [(ngModel)]="newTrabajador.direccion">
                         <input id="telefono" type="number" placeholder="numero de contacto"
                                 [(ngModel)]="newTrabajador.fono">
-                        <input type="text" value="" id="salario" placeholder="Salario" [(ngModel)]="newTrabajador.salario" readonly="readonly">
-                        <input type="password" id="passwd" placeholder="Contraseña" [(ngModel)]="newTrabajador.passwd">
-                
+                        <input id="salario" type="number" placeholder="Salario del Trabajador" [(ngModel)]="newTrabajador.salario">
+                        <input type="password" id="passwd" placeholder="Contraseña" [(ngModel)]="newTrabajador.passwd">              
                         Administrador?
                         <br>
-                        <input type="checkbox"   id="admin" placeholder="Es Admin?" [(ngModel)]="newTrabajador.isAdmin">
-                        <input id="salario" type="number" placeholder="Salario del Trabajador" [(ngModel)]="newTrabajador.salario">
+                        <input type="checkbox"   id="admin" placeholder="Es Admin?" [(ngModel)]="newTrabajador.isAdmin">                        
                 </div>
                 <div class="buttons">
                         <button class="btn btn-success" (click)="addOrEditTrabajador()">Agregar o Editar
@@ -32,7 +26,6 @@
         <div class="table-responsive">
                 <table class="table table-hover table-dark">
                         <tr>
-
                                 <th scope="col">id</th>
                                 <th scope="col">RUT</th>
                                 <th scope="col">Nombre</th>
@@ -51,6 +44,4 @@
                         </tbody>
                 </table>
         </div>
-
-
 </div>
