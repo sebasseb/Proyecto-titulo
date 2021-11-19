@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2021 a las 04:44:32
+-- Tiempo de generación: 19-11-2021 a las 16:28:29
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -147,9 +147,11 @@ CREATE TABLE `trabajadores` (
 --
 
 INSERT INTO `trabajadores` (`id`, `rut`, `passwd`, `nombre`, `direccion`, `fono`, `isAdmin`, `salario`) VALUES
-(1, '19015485-8', '123456', 'Sebastián Escobar', 'Pje Rio bueno 68', 940340950, 1, 700000),
-(2, '12345678-9', '123456', 'Ramon Ramirez', 'Pje Limarí 68, Villa Alemana', 924638514, 0, 400000),
-(125, '98765432-1', '123456789', 'Charlyboi96', 'Barón', 912345678, 1, 750000);
+(1, '19015485-8', '123456', 'Sebastián Escobar', 'Pje Rio bueno 68', 940340950, 1, 780000),
+(2, '12345678-9', '123456', 'Ramon Ramirez', 'Pje Limarí 68, Villa Alemana', 924638514, 0, 470000),
+(125, '98765432-1', '123456789', 'Charlyboi96', 'Barón', 912345678, 0, 680000),
+(129, '9811606-0', '123456', 'ivo plex', 'baron', 123456789, 0, 380000),
+(131, '14725836-9', '123456', 'Queti', 'valparaiso', 123456789, 1, 500000);
 
 --
 -- Índices para tablas volcadas
@@ -229,7 +231,7 @@ ALTER TABLE `reservas`
 -- AUTO_INCREMENT de la tabla `trabajadores`
 --
 ALTER TABLE `trabajadores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
 -- Restricciones para tablas volcadas

@@ -10,14 +10,14 @@ header('Content-Type: application/json');
 
 
 
-//echo uniqid("prefix",true);
+
 
 
 $json = file_get_contents('php://input'); // RECIBE EL JSON DE ANGULAR
 
 
 $arrayRes = json_decode($json, true);
-//echo json_encode($arrayRes);
+
 
 $rut =  $arrayRes['usuario'];
 $passwd = $arrayRes['password'];
@@ -51,7 +51,7 @@ if (isset($datos)) {
  
   $signature = hash_hmac('sha256',$header_payload,'canchaseb');
   $signature = base64url_encode($signature);
-  $jwt = $header_payload.'.'.$signature;
+  $jwt = $payload;
   
   $res = [
     "token" => $jwt,
