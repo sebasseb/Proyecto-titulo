@@ -11,7 +11,10 @@ import * as moment from 'moment';
   providers: [ReservasService]
 })
 export class ArriendoComponent implements OnInit {
-  ArrayReservas: Array<Reserva>;
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+ /* ArrayReservas: Array<Reserva>;
   newReserva: Reserva;
   
   constructor(private reservaServicio : ReservasService) {
@@ -30,9 +33,11 @@ export class ArriendoComponent implements OnInit {
     });
 
   }
+  
   /**
    * addOrEditReserva
    */
+  /*
   public addOrEditReserva() {
     if (this.newReserva.id === 0) {
 
@@ -63,6 +68,7 @@ export class ArriendoComponent implements OnInit {
   /**
    * delete
    */
+  /*
   public delete() {
     if (confirm('¿Seguro quieres eliminar esta entrada?')) {
       this.ArrayReservas = this.ArrayReservas.filter(elem => elem != this.newReserva);
@@ -78,12 +84,12 @@ export class ArriendoComponent implements OnInit {
   }
   /**
    * openForEdit
-   */
+   *//*
   public openForEdit(reserva : Reserva) {
     this.newReserva = reserva;
     
   }
-
+ */
 }
 
 
