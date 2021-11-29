@@ -36,6 +36,7 @@ import { ReservaFutboltenisComponent } from './components/reserva-futboltenis/re
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
+import { CalendarioFutbolitoComponent } from './components/calendario-futbolito/calendario-futbolito.component';
 
 
 
@@ -61,7 +62,8 @@ import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-
     FinanzasComponent,
     ReservaFutbolitoComponent,
     ReservaFutboltenisComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    CalendarioFutbolitoComponent
 
   ],
   imports: [

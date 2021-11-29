@@ -17,6 +17,7 @@ import { FinanzasComponent } from './components/finanzas/finanzas.component';
 import { ReservaFutbolitoComponent } from './components/reserva-futbolito/reserva-futbolito.component';
 import { ReservaFutboltenisComponent } from './components/reserva-futboltenis/reserva-futboltenis.component';
 import { GuardLoginGuard } from './api/Login/guard-login.guard';
+import { CalendarioFutbolitoComponent } from './components/calendario-futbolito/calendario-futbolito.component';
 
 
 const routes: Routes = [
@@ -85,6 +86,10 @@ const routes: Routes = [
   {
     path: 'futbol-tenis',
     component:ReservaFutboltenisComponent
+  },
+  {
+    path: 'calendario-fubolito',
+    component:CalendarioFutbolitoComponent
   },
 
 
