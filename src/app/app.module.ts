@@ -33,10 +33,11 @@ import { AuthService } from './servicios/auth.service';
 import { AuthInterceptorService } from './servicios/auth-interceptor.service';
 import { CookieService } from 'ngx-cookie-service';
 import { ReservaFutboltenisComponent } from './components/reserva-futboltenis/reserva-futboltenis.component';
-import { DatepickerComponent } from './components/datepicker/datepicker.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
-import { CalendarioFutbolitoComponent } from './components/calendario-futbolito/calendario-futbolito.component';
+import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
 
 
 
@@ -62,8 +63,8 @@ import { CalendarioFutbolitoComponent } from './components/calendario-futbolito/
     FinanzasComponent,
     ReservaFutbolitoComponent,
     ReservaFutboltenisComponent,
-    DatepickerComponent,
-    CalendarioFutbolitoComponent
+    DatePickerComponent,
+
 
   ],
   imports: [
@@ -75,8 +76,10 @@ import { CalendarioFutbolitoComponent } from './components/calendario-futbolito/
     AppRoutingModule,
     NgbModule,
     DlDateTimeDateModule,  // <--- Determines the data type of the model
-    DlDateTimePickerModule
-    
+    DlDateTimePickerModule,
+    NgbPaginationModule,
+    NgbAlertModule
+
   ],
   providers: [
     ProductosService,
@@ -85,8 +88,8 @@ import { CalendarioFutbolitoComponent } from './components/calendario-futbolito/
     AuthService,
     CookieService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
-    
-    
+
+
   ],
   bootstrap: [AppComponent]
 })
