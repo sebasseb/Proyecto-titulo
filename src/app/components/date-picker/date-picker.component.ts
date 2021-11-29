@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCalendar, NgbDateStruct, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Reserva } from 'src/app/class/reserva';
+import { ReservasService } from 'src/app/servicios/reservas.service';
 
 @Component({
   selector: 'app-date-picker',
@@ -16,8 +18,10 @@ export class DatePickerComponent implements OnInit {
   phone!: number;
   reserva!: string;
 
+  newReserva: Reserva;
 
-  constructor(private calendar: NgbCalendar, private config: NgbDatepickerConfig) {
+
+  constructor(private calendar: NgbCalendar, private config: NgbDatepickerConfig, private reservasServicio : ReservasService) {
     const current = new Date();
     config.minDate = {
       year: current.getFullYear(),
@@ -27,7 +31,7 @@ export class DatePickerComponent implements OnInit {
     //config.maxDate = { year: 2099, month: 12, day: 31 };
     config.outsideDays = 'hidden';
 
-
+    this.newReserva = new Reserva;
   }
 
 
@@ -53,4 +57,40 @@ export class DatePickerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  save(reserva : string) {
+   
+    console.log(this.model.year);
+    console.log(this.model.month);
+    console.log(this.model.day);
+    
+
+    this.newReserva.dia = this.model.day;
+    this.newReserva.mes = this.model.month;
+    this.newReserva.ano = this.model.year;
+    this.newReserva.hora = this.hour;
+   
+    this.newReserva.rutCliente = this.rut;
+    this.newReserva.nombreCliente = this.name;
+    this.newReserva.telefono = this.phone;
+
+    this.newReserva.reserva = reserva;
+
+    this.newReserva.datetime.setFullYear(this.newReserva.ano, this.newReserva.mes, this.newReserva.dia);
+    this.newReserva.datetime.setHours(this.newReserva.hora,0,0);
+
+
+
+    console.log(this.newReserva);
+    
+
+    //console.log(this.newReserva.fecha);
+    this.reservasServicio.agregarReserva(this.newReserva).subscribe(
+      (res) => {
+        console.log(res);
+        
+      }
+    );
+
+  }
 }

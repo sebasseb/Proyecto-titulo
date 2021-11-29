@@ -5,9 +5,14 @@ export class Reserva {
   nombreCliente!: string;
   rutCliente!: string;
   reserva!: string;
-  hora!: string;
-  fecha!: Date;
+  hora!: number;
+  dia!: number;
+  mes!: number;
+  ano!: number;
   telefono!: number;
+
+
+  datetime = new Date;
 
 
   constructor() {
