@@ -15,7 +15,20 @@ export class DatePickerComponent implements OnInit {
 
   selectToday() {
     this.model = this.calendar.getToday();
+    console.log(this.model.day);
+    console.log(this.model.month);
+    
+  
+    
+    
   }
+
+
+  showModel() {
+    console.log(this.model);
+  }
+
+
   ngOnInit(): void {
   }
 
