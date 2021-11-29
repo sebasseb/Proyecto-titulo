@@ -2,7 +2,7 @@
     <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
     <div class="HourWrapper">
 
-        <button class="btn btn-sm btn-outline-primary" (click)="setHour(15)">15:00</button>
+        <!-- <button class="btn btn-sm btn-outline-primary" (click)="setHour(15)">15:00</button>
         <button class="btn btn-sm btn-outline-primary" (click)="setHour(16)">16:00</button>
         <button class="btn btn-sm btn-outline-primary" (click)="setHour(17)">17:00</button>
         <button class="btn btn-sm btn-outline-primary" (click)="setHour(18)">18:00</button>
@@ -10,7 +10,11 @@
         <button class="btn btn-sm btn-outline-primary" (click)="setHour(20)">20:00</button>
         <button class="btn btn-sm btn-outline-primary" (click)="setHour(21)">21:00</button>
         <button class="btn btn-sm btn-outline-primary" (click)="setHour(22)">22:00</button>
-        <button class="btn btn-sm btn-outline-primary" (click)="setHour(23)">23:00</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="setHour(23)">23:00</button> -->
+        <ngb-timepicker [(ngModel)]="time" [minuteStep]="minuteStep"></ngb-timepicker>
+        <pre>Selected time: {{time | json}}</pre>
+
+
     </div>
 
 </div>
@@ -27,14 +31,17 @@
 
 <div class="input-group flex-nowrap" id="contactWrapper">
     <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
-    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="addon-wrapping" [(ngModel)]="name">
+    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="addon-wrapping"
+        [(ngModel)]="name">
 
     <span class="input-group-text" id="addon-wrapping"><i class="fas fa-key"></i></span>
-    <input type="text" class="form-control" placeholder="Rut" aria-label="Rut" aria-describedby="addon-wrapping"  [(ngModel)]="rut">
+    <input type="text" class="form-control" placeholder="Rut" aria-label="Rut" aria-describedby="addon-wrapping"
+        [(ngModel)]="rut">
 
     <span class="input-group-text" id="addon-wrapping"><i class="fas fa-mobile-alt"></i></span>
-    <input type="number" class="form-control" placeholder="N° Teléfono" aria-label="Telefono" aria-describedby="addon-wrapping"  [(ngModel)]="phone">
-    
+    <input type="number" class="form-control" placeholder="N° Teléfono" aria-label="Telefono"
+        aria-describedby="addon-wrapping" [(ngModel)]="phone">
+
 </div>
 <button class="btn btn-success" (click)="save('Cancha Futbolito')">Reservar</button>
 

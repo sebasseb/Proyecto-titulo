@@ -6,9 +6,7 @@ export class Reserva {
   rutCliente!: string;
   reserva!: string;
   hora!: number;
-  dia!: number;
-  mes!: number;
-  ano!: number;
+
   telefono!: number;
 
 

@@ -20,6 +20,10 @@ export class DatePickerComponent implements OnInit {
 
   newReserva: Reserva;
 
+  time = { hour: 15, minute: 0 };
+  minuteStep = 60;
+
+
 
   constructor(private calendar: NgbCalendar, private config: NgbDatepickerConfig, private reservasServicio : ReservasService) {
     const current = new Date();
@@ -64,33 +68,34 @@ export class DatePickerComponent implements OnInit {
     console.log(this.model.month);
     console.log(this.model.day);
     
-
+/*
     this.newReserva.dia = this.model.day;
     this.newReserva.mes = this.model.month;
-    this.newReserva.ano = this.model.year;
-    this.newReserva.hora = this.hour;
-   
+    this.newReserva.ano = this.model.year; */
+    //this.newReserva.hora = this.hour;
+
     this.newReserva.rutCliente = this.rut;
     this.newReserva.nombreCliente = this.name;
     this.newReserva.telefono = this.phone;
 
     this.newReserva.reserva = reserva;
-
-    this.newReserva.datetime.setFullYear(this.newReserva.ano, this.newReserva.mes, this.newReserva.dia);
+/*
+    this.newReserva.datetime.setFullYear(this.model.year, this.model.month, this.model.day);
     this.newReserva.datetime.setHours(this.newReserva.hora,0,0);
+*/
 
 
-
-    console.log(this.newReserva);
+    //console.log(this.newReserva);
     
 
     //console.log(this.newReserva.fecha);
+    /*
     this.reservasServicio.agregarReserva(this.newReserva).subscribe(
       (res) => {
         console.log(res);
         
       }
-    );
+    );*/
 
   }
 }
