@@ -78,20 +78,20 @@ export class DatePickerComponent implements OnInit {
     this.newReserva.dia = this.model.day;
     this.newReserva.mes = this.model.month;
     this.newReserva.ano = this.model.year; */
-    //this.newReserva.hora = this.hour;
+    this.newReserva.hora = this.hour;
 
     this.newReserva.rutCliente = this.rut;
     this.newReserva.nombreCliente = this.name;
     this.newReserva.telefono = this.phone;
 
     this.newReserva.reserva = reserva;
-/*
+
     this.newReserva.datetime.setFullYear(this.model.year, this.model.month, this.model.day);
     this.newReserva.datetime.setHours(this.newReserva.hora,0,0);
-*/
 
 
-    //console.log(this.newReserva);
+
+    console.log(this.newReserva);
     
 
     //console.log(this.newReserva.fecha);
