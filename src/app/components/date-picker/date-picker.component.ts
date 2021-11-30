@@ -120,9 +120,9 @@ export class DatePickerComponent implements OnInit {
             //console.log(strHour);
             console.log(hours[_i]+"");
             
-            var element = <HTMLInputElement>document.getElementById('16');
+            /*var element = <HTMLInputElement>document.getElementById();
             element.disabled = true;
-          
+          */
             
            
 
