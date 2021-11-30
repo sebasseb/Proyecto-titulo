@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbCalendar, NgbDateStruct, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Reserva } from 'src/app/class/reserva';
 import { ReservasService } from 'src/app/servicios/reservas.service';
+import {Moment } from 'moment';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-date-picker',
@@ -20,8 +22,10 @@ export class DatePickerComponent implements OnInit {
 
   newReserva: Reserva;
 
-  time = { hour: 15, minute: 0 };
+  
+  time = {hour: 15};
   minuteStep = 60;
+  
 
 
 
@@ -38,6 +42,8 @@ export class DatePickerComponent implements OnInit {
     this.newReserva = new Reserva;
   }
 
+
+ 
 
   selectToday() {
     this.model = this.calendar.getToday();
