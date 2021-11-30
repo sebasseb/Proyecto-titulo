@@ -10,11 +10,12 @@ export class Reserva {
   telefono!: number;
 
 
-  datetime = new Date;
+  datetime !: string;
 
 
   constructor() {
     this.id = 0;
+    
     
     
   }

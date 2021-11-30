@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgbCalendar, NgbDateStruct, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Reserva } from 'src/app/class/reserva';
 import { ReservasService } from 'src/app/servicios/reservas.service';
-import {Moment } from 'moment';
+import { Moment } from 'moment';
 import * as moment from 'moment';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-date-picker',
@@ -22,14 +23,12 @@ export class DatePickerComponent implements OnInit {
 
   newReserva: Reserva;
 
-  
-  time = {hour: 15};
-  minuteStep = 60;
-  
 
 
 
-  constructor(private calendar: NgbCalendar, private config: NgbDatepickerConfig, private reservasServicio : ReservasService) {
+
+
+  constructor(private calendar: NgbCalendar, private config: NgbDatepickerConfig, private reservasServicio: ReservasService) {
     const current = new Date();
     config.minDate = {
       year: current.getFullYear(),
@@ -43,7 +42,7 @@ export class DatePickerComponent implements OnInit {
   }
 
 
- 
+
 
   selectToday() {
     this.model = this.calendar.getToday();
@@ -58,26 +57,24 @@ export class DatePickerComponent implements OnInit {
 
   setHour(hour: number) {
     this.hour = hour;
-    
+
 
   }
 
 
 
   ngOnInit(): void {
+
+
+
+
+
   }
 
 
-  save(reserva : string) {
-   
-    console.log(this.model.year);
-    console.log(this.model.month);
-    console.log(this.model.day);
-    
-/*
-    this.newReserva.dia = this.model.day;
-    this.newReserva.mes = this.model.month;
-    this.newReserva.ano = this.model.year; */
+
+  save(reserva: string) {
+
     this.newReserva.hora = this.hour;
 
     this.newReserva.rutCliente = this.rut;
@@ -86,22 +83,84 @@ export class DatePickerComponent implements OnInit {
 
     this.newReserva.reserva = reserva;
 
-    this.newReserva.datetime.setFullYear(this.model.year, this.model.month, this.model.day);
-    this.newReserva.datetime.setHours(this.newReserva.hora,0,0);
+    const date = new Date;
+
+    date.setFullYear(this.model.year, this.model.month - 1, this.model.day);
+    date.setHours(this.hour, 0, 0);
 
 
+    const formatedDate = formatDate(date, 'yyyy-MM-dd HH:mm:ss', 'en-US');
 
+    this.newReserva.datetime = formatedDate;
     console.log(this.newReserva);
-    
 
-    //console.log(this.newReserva.fecha);
-    /*
-    this.reservasServicio.agregarReserva(this.newReserva).subscribe(
+
+    this.reservasServicio.agregarReserva(this.newReserva).subscribe();
+
+  }
+
+
+  buscarReserva() {
+
+    const date = new Date;
+
+    date.setFullYear(this.model.year, this.model.month - 1, this.model.day);
+
+    const formatedDate = formatDate(date, 'yyyy-MM-dd', 'en-US');
+
+    this.reservasServicio.buscarReserva(formatedDate).subscribe(
       (res) => {
-        console.log(res);
+        if (res !== null) {
+
+          const hours: any[] = Array.of(res);
+          var strHour;
+
+          for (var _i = 0; _i < hours.length; _i++) {
+            //strHour = hours[_i] + "";
+            //console.log(strHour);
+            console.log(hours[_i]+"");
+            
+            var element = <HTMLInputElement>document.getElementById('16');
+            element.disabled = true;
+          
+            
+           
+
+
+          }
+
+         
+
+          /*
+                    const strHour = this.hour + "";
+                    var element = <HTMLInputElement>document.getElementById(strHour);
+                    element.disabled = true;
+          */
+        }
+
+      }
+    )
+
+
+
+
+    /*
+    this.reservasServicio.buscarReserva(formatedDate).subscribe(
+      (res) => {
+        if (res !== null) {
+
+
+          /*const strHour = this.hour + "";
+          var element = <HTMLInputElement>document.getElementById(strHour);
+          element.disabled = true;
+
+          ------ TO DISABLE A BUTTON BY ID ----------
+          
+        }
         
       }
-    );*/
+    )*/
 
   }
 }
+

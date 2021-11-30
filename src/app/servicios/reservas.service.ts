@@ -24,8 +24,8 @@ export class ReservasService {
   }
 
 
-  buscarReserva(rut: string) {
-    return this.http.get(`${this.URL}buscarReserva.php?rut=${rut}`);
+  buscarReserva(date : string) {
+    return this.http.get(`${this.URL}buscarReserva.php?date=${date}`);
   }
 
   editarReserva(reserva: Reserva) {
