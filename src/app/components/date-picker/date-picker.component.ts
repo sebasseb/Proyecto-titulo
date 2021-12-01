@@ -5,6 +5,7 @@ import { ReservasService } from 'src/app/servicios/reservas.service';
 import { Moment } from 'moment';
 import * as moment from 'moment';
 import { formatDate } from '@angular/common';
+import { async } from 'rxjs';
 
 @Component({
   selector: 'app-date-picker',
@@ -24,7 +25,7 @@ export class DatePickerComponent implements OnInit {
   newReserva: Reserva;
 
 
-
+  arrayHoras = new Array;
 
 
 
@@ -98,10 +99,15 @@ export class DatePickerComponent implements OnInit {
     this.reservasServicio.agregarReserva(this.newReserva).subscribe();
 
   }
-
+  enableAllBtn() {
+    for (let i = 15; i < 23; i++) {
+      var btn = <HTMLInputElement>document.getElementById(i + "");
+      btn.disabled = false;
+    }
+  }
 
   buscarReserva() {
-
+    this.enableAllBtn();
     const date = new Date;
 
     date.setFullYear(this.model.year, this.model.month - 1, this.model.day);
@@ -112,55 +118,33 @@ export class DatePickerComponent implements OnInit {
       (res) => {
         if (res !== null) {
 
-          const hours: any[] = Array.of(res);
-          var strHour;
+          this.arrayHoras = Array.of(res);
 
-          for (var _i = 0; _i < hours.length; _i++) {
-            //strHour = hours[_i] + "";
-            //console.log(strHour);
-            console.log(hours[_i]+"");
-            
-            /*var element = <HTMLInputElement>document.getElementById();
-            element.disabled = true;
-          */
-            
-           
+          for (let i = 0; i < this.arrayHoras.length; i++) {
+            for (let j = 0; j < this.arrayHoras[i].length; j++) {
+              console.log(this.arrayHoras[i][j] + "");
+              var btn = <HTMLInputElement>document.getElementById(this.arrayHoras[i][j] + "");
+              btn.disabled = true;
+
+            }
 
 
           }
 
-         
-
-          /*
-                    const strHour = this.hour + "";
-                    var element = <HTMLInputElement>document.getElementById(strHour);
-                    element.disabled = true;
-          */
         }
 
       }
-    )
+    );
 
 
-
+    console.log(this.arrayHoras);
 
     /*
-    this.reservasServicio.buscarReserva(formatedDate).subscribe(
-      (res) => {
-        if (res !== null) {
-
-
-          /*const strHour = this.hour + "";
-          var element = <HTMLInputElement>document.getElementById(strHour);
-          element.disabled = true;
-
-          ------ TO DISABLE A BUTTON BY ID ----------
-          
-        }
         
-      }
-    )*/
-
+    */
   }
+
+
+
 }
 
