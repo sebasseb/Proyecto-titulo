@@ -26,32 +26,27 @@
 <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Seleccionar Hoy</button>
 <button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo()">Mes Actual</button>
 <button class="btn btn-info" style="margin-left: 35%;" (click)="buscarReserva()">Ver Disponibilidad</button>
-
+<button class="btn btn-success" (click)="save('Cancha Futbolito')" id="reservar">Reservar</button>
 
 <hr />
 
 <div class="input-group flex-nowrap" id="contactWrapper">
     <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
     <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="addon-wrapping"
-        [(ngModel)]="name">
+        [(ngModel)]="name" required>
 
     <span class="input-group-text" id="addon-wrapping"><i class="fas fa-key"></i></span>
     <input type="text" class="form-control" placeholder="Rut" aria-label="Rut" aria-describedby="addon-wrapping"
-        [(ngModel)]="rut">
+        [(ngModel)]="rut" required>
 
     <span class="input-group-text" id="addon-wrapping"><i class="fas fa-mobile-alt"></i></span>
     <input type="number" class="form-control" placeholder="N° Teléfono" aria-label="Telefono"
-        aria-describedby="addon-wrapping" [(ngModel)]="phone">
+        aria-describedby="addon-wrapping" [(ngModel)]="phone" required>
 
 </div>
-<button class="btn btn-success" (click)="save('Cancha Futbolito')">Reservar</button>
+
 
 
 <hr />
 
 
-<pre>Fecha: {{ model | json }}</pre>
-<pre>Hora: {{hour}} </pre>
-<pre>Nombre: {{name}} </pre>
-<pre>Rut: {{rut}} </pre>
-<pre>N° Teléfono: {{phone}} </pre>

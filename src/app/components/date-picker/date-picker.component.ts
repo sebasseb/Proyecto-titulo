@@ -65,11 +65,24 @@ export class DatePickerComponent implements OnInit {
 
 
   ngOnInit(): void {
-
-
-
-
-
+    var btn1 = <HTMLInputElement>document.getElementById('15');
+    btn1.disabled = true;
+    var btn2 = <HTMLInputElement>document.getElementById('16');
+    btn2.disabled = true;
+    var btn3 = <HTMLInputElement>document.getElementById('17');
+    btn3.disabled = true;
+    var btn4 = <HTMLInputElement>document.getElementById('18');
+    btn4.disabled = true;
+    var btn5 = <HTMLInputElement>document.getElementById('19');
+    btn5.disabled = true;
+    var btn6 = <HTMLInputElement>document.getElementById('20');
+    btn6.disabled = true;
+    var btn7 = <HTMLInputElement>document.getElementById('21');
+    btn7.disabled = true;
+    var btn8 = <HTMLInputElement>document.getElementById('22');
+    btn8.disabled = true;
+    var btnReservar = <HTMLInputElement>document.getElementById('reservar');
+    btnReservar.disabled = true;
   }
 
 
@@ -94,9 +107,33 @@ export class DatePickerComponent implements OnInit {
 
     this.newReserva.datetime = formatedDate;
     console.log(this.newReserva);
+    console.log(this.arrayHoras);
+
+    console.log('arrayHoras.length: ' + this.arrayHoras.length);
+    //console.log(this.newReserva.datetime.substring(11, 13));
+
+    const currentHour = this.newReserva.datetime.substring(11, 13);
+    console.log('currentHour: ' + currentHour);
 
 
-    this.reservasServicio.agregarReserva(this.newReserva).subscribe();
+
+    /*
+    for (let i = 0; i < this.arrayHoras.length; i++) {
+      for (let j = 0; this.arrayHoras[i].length; j++) {
+        console.log(this.arrayHoras[i][j]);
+
+      }
+    }
+*/
+    //this.reservasServicio.agregarReserva(this.newReserva).subscribe();
+
+    //this.reservasServicio.agregarReserva(this.newReserva).subscribe();
+
+
+
+
+
+
 
   }
   enableAllBtn() {
@@ -104,6 +141,8 @@ export class DatePickerComponent implements OnInit {
       var btn = <HTMLInputElement>document.getElementById(i + "");
       btn.disabled = false;
     }
+    var btnReservar = <HTMLInputElement>document.getElementById('reservar');
+    btnReservar.disabled = false;
   }
 
   buscarReserva() {
@@ -122,9 +161,10 @@ export class DatePickerComponent implements OnInit {
 
           for (let i = 0; i < this.arrayHoras.length; i++) {
             for (let j = 0; j < this.arrayHoras[i].length; j++) {
-              console.log(this.arrayHoras[i][j] + "");
+              //console.log(this.arrayHoras[i][j] + "");
               var btn = <HTMLInputElement>document.getElementById(this.arrayHoras[i][j] + "");
               btn.disabled = true;
+
 
             }
 
@@ -137,7 +177,6 @@ export class DatePickerComponent implements OnInit {
     );
 
 
-    console.log(this.arrayHoras);
 
     /*
         
