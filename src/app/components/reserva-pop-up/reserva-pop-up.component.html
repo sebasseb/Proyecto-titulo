@@ -1,0 +1,30 @@
+
+<hr />
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Reserva tu Hora</h4>
+            </div>
+            <div class="modal-body">
+                <!-- foto -->
+                <div id="wrapper">
+                    <img src="assets/Icons/calendar-icon.jpg" alt="Selecciona un dia">
+                    <img src="assets/Icons/check-icon.png" alt="Compureba las horas disponibles">
+                    <img src="assets/Icons/watch-icon.png" alt="Elige una hora">
+
+                    <p>1°.Selecciona un dia</p>
+                    <p>2°.Comprueba las horas disponibles</p>
+                    <p>3°.Elige una hora</p>
+                    
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closePopup()">
+                    Entiendo
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

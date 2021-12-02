@@ -38,6 +38,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { ReservaPopUpComponent } from './components/reserva-pop-up/reserva-pop-up.component';
+import { ConfirmacionReservaPopUpComponent } from './components/confirmacion-reserva-pop-up/confirmacion-reserva-pop-up.component';
 
 
 
@@ -64,6 +66,8 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
     ReservaFutbolitoComponent,
     ReservaFutboltenisComponent,
     DatePickerComponent,
+    ReservaPopUpComponent,
+    ConfirmacionReservaPopUpComponent,
 
 
   ],

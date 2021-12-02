@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgbCalendar, NgbDateStruct, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Reserva } from 'src/app/class/reserva';
 import { ReservasService } from 'src/app/servicios/reservas.service';
-import { Moment } from 'moment';
-import * as moment from 'moment';
+import {ConfirmacionReservaPopUpComponent } from '../confirmacion-reserva-pop-up/confirmacion-reserva-pop-up.component';
 import { formatDate } from '@angular/common';
-import { async } from 'rxjs';
+
 
 @Component({
   selector: 'app-date-picker',
@@ -40,6 +39,16 @@ export class DatePickerComponent implements OnInit {
     config.outsideDays = 'hidden';
 
     this.newReserva = new Reserva;
+  }
+
+  displayStyle = "none";
+  
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+    window.location.reload();
   }
 
 
@@ -89,6 +98,7 @@ export class DatePickerComponent implements OnInit {
 
   save(reserva: string) {
 
+
     this.newReserva.hora = this.hour;
 
     this.newReserva.rutCliente = this.rut;
@@ -101,19 +111,21 @@ export class DatePickerComponent implements OnInit {
 
     date.setFullYear(this.model.year, this.model.month - 1, this.model.day);
     date.setHours(this.hour, 0, 0);
-
-
+    var currentDate = this.model.year + "-" + (this.model.month) + "-" + this.model.day;
+   
     const formatedDate = formatDate(date, 'yyyy-MM-dd HH:mm:ss', 'en-US');
 
     this.newReserva.datetime = formatedDate;
-    console.log(this.newReserva);
-    console.log(this.arrayHoras);
+    
+    
 
-    console.log('arrayHoras.length: ' + this.arrayHoras.length);
+   
+
     //console.log(this.newReserva.datetime.substring(11, 13));
 
-    const currentHour = this.newReserva.datetime.substring(11, 13);
-    console.log('currentHour: ' + currentHour);
+  
+    
+
 
 
 
@@ -124,8 +136,18 @@ export class DatePickerComponent implements OnInit {
 
       }
     }
-*/
-    //this.reservasServicio.agregarReserva(this.newReserva).subscribe();
+*/  if (this.newReserva.rutCliente !== undefined || this.newReserva.nombreCliente !== undefined || this.newReserva.telefono !== undefined) {
+  console.log(this.newReserva.rutCliente);
+  console.log(this.newReserva.nombreCliente);
+  console.log(this.newReserva.telefono);
+  
+  this.reservasServicio.agregarReserva(this.newReserva).subscribe();
+  this.openPopup();
+
+} else {
+    window.alert("Llene los con su información para hacer una reserva");
+}
+    
 
     //this.reservasServicio.agregarReserva(this.newReserva).subscribe();
 
