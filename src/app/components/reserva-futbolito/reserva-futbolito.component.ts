@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Component, Input, OnInit } from '@angular/core';
+import { DatePickerComponent } from '../date-picker/date-picker.component';
 
 
 @Component({
@@ -8,13 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservaFutbolitoComponent implements OnInit {
 
-  
+  reserva: string;
 
-  constructor() {
-    
+  constructor(private _datepicker : DatePickerComponent) {
+    this.reserva = "futbolito";
    }
 
   ngOnInit(): void {
+    
+    
   }
+
+
+ 
 
 }

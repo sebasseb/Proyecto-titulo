@@ -1,21 +1,16 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { NgbCalendar, NgbDateStruct, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDateStruct, NgbCalendar, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Reserva } from 'src/app/class/reserva';
 import { ReservasService } from 'src/app/servicios/reservas.service';
-import { ConfirmacionReservaPopUpComponent } from '../confirmacion-reserva-pop-up/confirmacion-reserva-pop-up.component';
-import { formatDate } from '@angular/common';
-import { ReservaFutbolitoComponent } from '../reserva-futbolito/reserva-futbolito.component';
-
 
 @Component({
-  selector: 'app-date-picker',
-  templateUrl: './date-picker.component.html',
-  styleUrls: ['./date-picker.component.less'],
- 
-
+  selector: 'app-futtenis-date-picker',
+  templateUrl: './futtenis-date-picker.component.html',
+  styleUrls: ['./futtenis-date-picker.component.less']
 })
+export class FuttenisDatePickerComponent implements OnInit {
 
-export class DatePickerComponent implements OnInit {
   model!: NgbDateStruct;
   date!: { year: number; month: number; };
   hour!: number;
@@ -24,7 +19,7 @@ export class DatePickerComponent implements OnInit {
   phone!: number;
 
 
-  reserva:string = 'futbolito';
+  reserva: string = 'futtenis';
 
 
   newReserva: Reserva;
@@ -37,11 +32,11 @@ export class DatePickerComponent implements OnInit {
   constructor(private calendar: NgbCalendar,
     private config: NgbDatepickerConfig,
     private reservasServicio: ReservasService,) {
-        const current = new Date();
-        config.minDate = {
-          year: current.getFullYear(),
-          month: current.getMonth() + 1,
-          day: current.getDate()
+    const current = new Date();
+    config.minDate = {
+      year: current.getFullYear(),
+      month: current.getMonth() + 1,
+      day: current.getDate()
     };
     //config.maxDate = { year: 2099, month: 12, day: 31 };
     config.outsideDays = 'hidden';
@@ -68,9 +63,9 @@ export class DatePickerComponent implements OnInit {
     btn8.disabled = true;
     var btnReservar = <HTMLInputElement>document.getElementById('reservar');
     btnReservar.disabled = true;
-   
-    
-    
+
+
+
   }
 
   displayStyle = "none";
@@ -142,8 +137,17 @@ export class DatePickerComponent implements OnInit {
       console.log(this.newReserva.nombreCliente);
       console.log(this.newReserva.telefono);
 
-      this.reservasServicio.agregarReserva(this.newReserva).subscribe();
-      this.openPopup();
+      this.reservasServicio.agregarReserva(this.newReserva).subscribe((res) => {
+        console.log(res);
+        if (res) {
+          this.openPopup();
+        } else {
+          window.alert("No se agregó la reserva, porfavor siga las instrucciones");
+          window.location.reload();
+          
+        }
+      });
+      
 
     } else {
       window.alert("Llene los campos con su información para hacer una reserva");
@@ -216,8 +220,4 @@ export class DatePickerComponent implements OnInit {
         
     */
   }
-
-
-
 }
-

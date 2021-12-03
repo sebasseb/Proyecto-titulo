@@ -40,6 +40,8 @@ import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap'
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { ReservaPopUpComponent } from './components/reserva-pop-up/reserva-pop-up.component';
 import { ConfirmacionReservaPopUpComponent } from './components/confirmacion-reserva-pop-up/confirmacion-reserva-pop-up.component';
+import {FuttenisDatePickerComponent } from './components/futtenis-date-picker/futtenis-date-picker.component';
+
 
 
 
@@ -68,6 +70,8 @@ import { ConfirmacionReservaPopUpComponent } from './components/confirmacion-res
     DatePickerComponent,
     ReservaPopUpComponent,
     ConfirmacionReservaPopUpComponent,
+    FuttenisDatePickerComponent
+
 
 
   ],
@@ -91,7 +95,8 @@ import { ConfirmacionReservaPopUpComponent } from './components/confirmacion-res
     ReservasService,
     AuthService,
     CookieService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+    DatePickerComponent
 
 
   ],
