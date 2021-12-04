@@ -1,0 +1,79 @@
+<div class="wrapper">
+  
+    <div class="HourWrapper">
+
+        <button class="btn btn-sm btn-outline-primary" (click)="setHour(15)" id="15">15:00</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="setHour(16)" id="16">16:00</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="setHour(17)" id="17">17:00</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="setHour(18)" id="18">18:00</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="setHour(19)" id="19">19:00</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="setHour(20)" id="20">20:00</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="setHour(21)" id="21">21:00</button>
+        <button class="btn btn-sm btn-outline-primary" (click)="setHour(22)" id="22">22:00</button>
+        <h5><span class="label label-info" style="text-align: center; position: relative; top: 50%; left:20%;">Tu Hora: {{this.hour}}:00</span></h5>
+
+
+
+
+    </div>
+  <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+</div>
+
+
+
+<hr />
+
+<button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Seleccionar Hoy</button>
+<button class="btn btn-sm btn-outline-primary mr-2" (click)="dp.navigateTo()">Mes Actual</button>
+<button class="btn btn-info" style="margin-left: 35%;" (click)="buscarReserva()">Ver Disponibilidad</button>
+<hr />
+<div class="input-group flex-nowrap" id="contactWrapper">
+    <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
+    <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="addon-wrapping"
+        [(ngModel)]="name">
+
+    <span class="input-group-text" id="addon-wrapping"><i class="fas fa-key"></i></span>
+    <input type="text" class="form-control" placeholder="Rut" aria-label="Rut" aria-describedby="addon-wrapping"
+        [(ngModel)]="rut">
+
+    <span class="input-group-text" id="addon-wrapping"><i class="fas fa-mobile-alt"></i></span>
+    <input type="number" class="form-control" placeholder="N° Teléfono" aria-label="Telefono"
+        aria-describedby="addon-wrapping" [(ngModel)]="phone">
+
+</div>
+
+
+
+<button class="btn btn-success" (click)="save()" id="reservar">Reservar</button>
+
+<hr />
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Reserva tu Hora</h4>
+            </div>
+            <div class="modal-body">
+                <!-- foto -->
+                <div id="wrapper">
+                    <img src="assets/Icons/cloud-confirm-icon.png" alt="">
+                    <p style="padding-left: 5%">¡Reserva Guardada!</p>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="closePopup()">
+                    Ok
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

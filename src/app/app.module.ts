@@ -41,6 +41,10 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
 import { ReservaPopUpComponent } from './components/reserva-pop-up/reserva-pop-up.component';
 import { ConfirmacionReservaPopUpComponent } from './components/confirmacion-reserva-pop-up/confirmacion-reserva-pop-up.component';
 import {FuttenisDatePickerComponent } from './components/futtenis-date-picker/futtenis-date-picker.component';
+import { QuinchoDatePickerComponent } from './components/quincho-date-picker/quincho-date-picker.component';
+import { FuncionalDatePickerComponent } from './components/funcional-date-picker/funcional-date-picker.component';
+import { ReservaQuinchoComponent } from './components/reserva-quincho/reserva-quincho.component';
+import { ReservaFuncionalComponent } from './components/reserva-funcional/reserva-funcional.component';
 
 
 
@@ -70,7 +74,11 @@ import {FuttenisDatePickerComponent } from './components/futtenis-date-picker/fu
     DatePickerComponent,
     ReservaPopUpComponent,
     ConfirmacionReservaPopUpComponent,
-    FuttenisDatePickerComponent
+    FuttenisDatePickerComponent,
+    QuinchoDatePickerComponent,
+    FuncionalDatePickerComponent,
+    ReservaQuinchoComponent,
+    ReservaFuncionalComponent
 
 
 

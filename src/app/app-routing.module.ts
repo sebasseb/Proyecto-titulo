@@ -17,6 +17,8 @@ import { FinanzasComponent } from './components/finanzas/finanzas.component';
 import { ReservaFutbolitoComponent } from './components/reserva-futbolito/reserva-futbolito.component';
 import { ReservaFutboltenisComponent } from './components/reserva-futboltenis/reserva-futboltenis.component';
 import { GuardLoginGuard } from './api/Login/guard-login.guard';
+import { ReservaQuinchoComponent } from './components/reserva-quincho/reserva-quincho.component';
+import { ReservaFuncionalComponent } from './components/reserva-funcional/reserva-funcional.component';
 
 
 const routes: Routes = [
@@ -85,6 +87,14 @@ const routes: Routes = [
   {
     path: 'futbol-tenis',
     component:ReservaFutboltenisComponent
+  },
+  {
+    path: 'quincho',
+    component: ReservaQuinchoComponent 
+  },
+  {
+    path: 'funcional',
+    component: ReservaFuncionalComponent
   },
 
 

@@ -1,0 +1,44 @@
+.HourWrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+ngb-datepicker{
+    padding-left: 5%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+
+.btn-success{
+    margin-top: 10px;
+    margin-left: 40%;
+}
+
+.btn:focus{
+    color:blue;
+}
+img{
+    width: 100px;
+}
+#wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+
+    margin: auto;
+    width: 20%;
+}

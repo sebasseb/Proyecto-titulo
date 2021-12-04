@@ -5,11 +5,11 @@ import { Reserva } from 'src/app/class/reserva';
 import { ReservasService } from 'src/app/servicios/reservas.service';
 
 @Component({
-  selector: 'app-futtenis-date-picker',
-  templateUrl: './futtenis-date-picker.component.html',
-  styleUrls: ['./futtenis-date-picker.component.less']
+  selector: 'app-funcional-date-picker',
+  templateUrl: './funcional-date-picker.component.html',
+  styleUrls: ['./funcional-date-picker.component.less']
 })
-export class FuttenisDatePickerComponent implements OnInit {
+export class FuncionalDatePickerComponent implements OnInit {
 
   model!: NgbDateStruct;
   date!: { year: number; month: number; };
@@ -19,7 +19,7 @@ export class FuttenisDatePickerComponent implements OnInit {
   phone!: number;
 
 
-  reserva: string = 'futtenis';
+  reserva: string = 'funcional';
 
 
   newReserva: Reserva;
