@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgbCalendar, NgbDateStruct, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Reserva } from 'src/app/class/reserva';
 import { ReservasService } from 'src/app/servicios/reservas.service';
@@ -15,7 +15,7 @@ import { ReservaFutbolitoComponent } from '../reserva-futbolito/reserva-futbolit
 
 })
 
-export class DatePickerComponent implements OnInit {
+export class DatePickerComponent implements OnInit, OnDestroy {
   model!: NgbDateStruct;
   date!: { year: number; month: number; };
   hour!: number;
@@ -47,6 +47,9 @@ export class DatePickerComponent implements OnInit {
     config.outsideDays = 'hidden';
 
     this.newReserva = new Reserva;
+  }
+  ngOnDestroy(): void {
+    
   }
 
   ngOnInit(): void {
@@ -166,6 +169,15 @@ export class DatePickerComponent implements OnInit {
     }
     var btnReservar = <HTMLInputElement>document.getElementById('reservar');
     btnReservar.disabled = false;
+  }
+  
+  disableAllBtn() {
+    for (let i = 15; i < 23; i++) {
+      var btn = <HTMLInputElement>document.getElementById(i + "");
+      btn.disabled = false;
+    }
+    var btnReservar = <HTMLInputElement>document.getElementById('reservar');
+    btnReservar.disabled = true;
   }
 
   getReserva() {

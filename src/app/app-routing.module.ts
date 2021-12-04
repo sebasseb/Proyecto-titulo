@@ -6,7 +6,6 @@ import { NosotrosComponent } from "./components/nosotros/nosotros.component";
 import { ServiciosComponent } from "./components/servicios/servicios.component";
 import { ContactoComponent } from "./components/contacto/contacto.component";
 import { GaleriaComponent } from "./components/galeria/galeria.component";
-import { ReservaComponent } from './components/reserva/reserva.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuPrincipalComponent } from './components/menu-principal/menu-principal.component';
 import { ArriendoComponent } from './components/arriendo/arriendo.component';
@@ -42,10 +41,7 @@ const routes: Routes = [
     path: 'galeria',
     component: GaleriaComponent
   },
-  {
-    path: 'reservas',
-    component: ReservaComponent
-  },
+ 
   {
     path: 'login',
     component: LoginComponent

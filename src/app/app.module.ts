@@ -9,7 +9,7 @@ import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { GaleriaComponent } from './components/galeria/galeria.component';
-import { ReservaComponent } from './components/reserva/reserva.component';
+
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -59,7 +59,6 @@ import { ReservaFuncionalComponent } from './components/reserva-funcional/reserv
     ServiciosComponent,
     ContactoComponent,
     GaleriaComponent,
-    ReservaComponent,
     FooterComponent,
     LoginComponent,
     MenuPrincipalComponent,

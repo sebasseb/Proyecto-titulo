@@ -1,5 +1,5 @@
 <div class="wrapper">
-  
+    <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
     <div class="HourWrapper">
 
         <button class="btn btn-sm btn-outline-primary" (click)="setHour(15)" id="15">15:00</button>
@@ -16,7 +16,7 @@
 
 
     </div>
-  <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+  
 </div>
 
 

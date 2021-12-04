@@ -42,7 +42,7 @@ export class MenuPrincipalComponent implements OnInit {
     console.log(this.isAdmin);
     
     if (this.isAdmin == 0) {
-      (<HTMLInputElement>document.getElementById("finanzas")).disabled = true;
+
       (<HTMLInputElement> document.getElementById("trabajadores")).disabled = true;
   }
     

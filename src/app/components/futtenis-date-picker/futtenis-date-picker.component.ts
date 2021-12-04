@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgbDateStruct, NgbCalendar, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Reserva } from 'src/app/class/reserva';
 import { ReservasService } from 'src/app/servicios/reservas.service';
@@ -9,7 +9,7 @@ import { ReservasService } from 'src/app/servicios/reservas.service';
   templateUrl: './futtenis-date-picker.component.html',
   styleUrls: ['./futtenis-date-picker.component.less']
 })
-export class FuttenisDatePickerComponent implements OnInit {
+export class FuttenisDatePickerComponent implements OnInit, OnDestroy {
 
   model!: NgbDateStruct;
   date!: { year: number; month: number; };
@@ -63,9 +63,9 @@ export class FuttenisDatePickerComponent implements OnInit {
     btn8.disabled = true;
     var btnReservar = <HTMLInputElement>document.getElementById('reservar');
     btnReservar.disabled = true;
-
-
-
+  }
+  ngOnDestroy() {
+  
   }
 
   displayStyle = "none";
@@ -170,6 +170,15 @@ export class FuttenisDatePickerComponent implements OnInit {
     }
     var btnReservar = <HTMLInputElement>document.getElementById('reservar');
     btnReservar.disabled = false;
+  }
+  
+  disableAllBtn() {
+    for (let i = 15; i < 23; i++) {
+      var btn = <HTMLInputElement>document.getElementById(i + "");
+      btn.disabled = false;
+    }
+    var btnReservar = <HTMLInputElement>document.getElementById('reservar');
+    btnReservar.disabled = true;
   }
 
   getReserva() {

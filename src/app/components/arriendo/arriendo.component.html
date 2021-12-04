@@ -1,40 +1,24 @@
-<!-- <div class="container" style="padding-top: 8%;">
-    <h1>Arriendos / Reservas</h1>
-    <button class="btn" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Menu Principal</i></button>
-    <div class="wrapper">
-            <div class="inputs">
-                    <label> Rut Cliente : <input id="rutCliente" type="text" placeholder="Rut Cliente"
-                                    [(ngModel)]="newReserva.rutCliente"></label>
-                    <label>Producto : <input id="producto" type="number" placeholder="Producto"
-                                    [(ngModel)]="newReserva.producto"></label>
-                 
-                    
-            </div>
-            <div class="buttons">
-                    <button class="btn btn-success" (click)="addOrEditReserva()">Agregar o Editar Producto</button>
-                    <button *ngIf="newReserva.id !== 0" class="btn btn-danger" (click)="delete()" >Eliminar Producto</button>
-            </div>
-    </div>
-    <br>
+<div class="container" style="padding-top: 8%;">
     <div class="table-responsive">
-            <table  class="table table-hover table-dark" >
-                    <tr>
-                            
-                            <th scope="col">ID</th>
-                            <th scope="col">Rut Cliente</th>
-                            <th scope="col">Producto</th>
-                            <th scope="col">Fecha Reserva</th>                            
-                    </tr>
-                    <tbody>
-                            <tr *ngFor="let reserva of ArrayReservas" (click)="openForEdit(reserva)" [class.active]="newReserva == reserva">
-                                    <td>{{reserva.id}}</td>
-                                    <td>{{reserva.rutCliente}}</td>
-                                    <td>{{reserva.producto}}</td>
-                                    <td>{{reserva.horaReserva}}</td>
-                                                                       
-                            </tr>
-                    </tbody>
-            </table>
-    </div>
+        <table class="table table-hover table-dark">
+                <tr>
 
-</div> -->
+                        <th scope="col">RUT</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Fecha Hora</th>
+                        <th scope="col">Espacio</th>
+                </tr>
+                <tbody>
+                        <tr *ngFor="let reserva of ArrayReservas" (click)="openForEdit(reserva)"
+                                [class.active]="newReserva == reserva">
+                                <td>{{reserva.rutCliente}}</td>
+                                <td>{{reserva.nombre}Cliente}</td>
+                                <td>{{reserva.telefono}}</td>
+                                <td>{{reserva.datetime}}</td>
+                                <td>{{reserva.reserva}}</td>
+                        </tr>
+                </tbody>
+        </table>
+</div>
+</div>

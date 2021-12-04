@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgbDateStruct, NgbCalendar, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Reserva } from 'src/app/class/reserva';
 import { ReservasService } from 'src/app/servicios/reservas.service';
@@ -9,7 +9,7 @@ import { ReservasService } from 'src/app/servicios/reservas.service';
   templateUrl: './quincho-date-picker.component.html',
   styleUrls: ['./quincho-date-picker.component.less']
 })
-export class QuinchoDatePickerComponent implements OnInit {
+export class QuinchoDatePickerComponent implements OnInit , OnDestroy{
 
   model!: NgbDateStruct;
   date!: { year: number; month: number; };
@@ -42,6 +42,9 @@ export class QuinchoDatePickerComponent implements OnInit {
     config.outsideDays = 'hidden';
 
     this.newReserva = new Reserva;
+  }
+  ngOnDestroy(): void {
+
   }
 
   ngOnInit(): void {
@@ -170,6 +173,15 @@ export class QuinchoDatePickerComponent implements OnInit {
     }
     var btnReservar = <HTMLInputElement>document.getElementById('reservar');
     btnReservar.disabled = false;
+  }
+  
+  disableAllBtn() {
+    for (let i = 15; i < 23; i++) {
+      var btn = <HTMLInputElement>document.getElementById(i + "");
+      btn.disabled = false;
+    }
+    var btnReservar = <HTMLInputElement>document.getElementById('reservar');
+    btnReservar.disabled = true;
   }
 
   getReserva() {
