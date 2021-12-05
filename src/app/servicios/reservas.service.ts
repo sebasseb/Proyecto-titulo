@@ -31,4 +31,8 @@ export class ReservasService {
   editarReserva(reserva: Reserva) {
     return this.http.post(`${this.URL}editarReserva.php`, JSON.stringify(reserva));
   }
+
+  searchBy(objeto : any) {
+    return this.http.post(`${this.URL}searchBy.php`, JSON.stringify(objeto));
+  }
 }

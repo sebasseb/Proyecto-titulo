@@ -1,24 +1,49 @@
 <div class="container" style="padding-top: 8%;">
-    <div class="table-responsive">
-        <table class="table table-hover table-dark">
-                <tr>
+        <div class="wrapper">
+                <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Buscar por:   {{sortBy}} 
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" (click)="SortBy('RUT')">RUT</a></li>
+                                <li><a class="dropdown-item" (click)="SortBy('Fecha')">Fecha</a></li>
+                                <li><a class="dropdown-item" (click)="SortBy('Espacio')">Espacio</a></li>
+                        </ul>
+                </div>
 
-                        <th scope="col">RUT</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Teléfono</th>
-                        <th scope="col">Fecha Hora</th>
-                        <th scope="col">Espacio</th>
-                </tr>
-                <tbody>
-                        <tr *ngFor="let reserva of ArrayReservas" (click)="openForEdit(reserva)"
-                                [class.active]="newReserva == reserva">
-                                <td>{{reserva.rutCliente}}</td>
-                                <td>{{reserva.nombre}Cliente}</td>
-                                <td>{{reserva.telefono}}</td>
-                                <td>{{reserva.datetime}}</td>
-                                <td>{{reserva.reserva}}</td>
+                <input type="text" name="" id="searchInput" placeholder="Busqueda" [(ngModel)] = "searchInput"> 
+
+                <button class="btn btn-success" (click)="searchBy()">Buscar</button>
+
+
+        </div>
+
+
+
+
+
+
+        <div class="table-responsive">
+                <table class="table table-hover table-dark">
+                        <tr>
+
+                                <th scope="col">RUT</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Teléfono</th>
+                                <th scope="col">Fecha Hora</th>
+                                <th scope="col">Espacio</th>
                         </tr>
-                </tbody>
-        </table>
-</div>
+                        <tbody>
+                                <tr *ngFor="let reserva of ArrayReservas" (click)="openForEdit(reserva)"
+                                        [class.active]="newReserva == reserva">
+                                        <td>{{reserva.rutCliente}}</td>
+                                        <td>{{reserva.nombreCliente}}</td>
+                                        <td>{{reserva.telefono}}</td>
+                                        <td>{{reserva.datetime}}</td>
+                                        <td>{{reserva.reserva}}</td>
+                                </tr>
+                        </tbody>
+                </table>
+        </div>
 </div>

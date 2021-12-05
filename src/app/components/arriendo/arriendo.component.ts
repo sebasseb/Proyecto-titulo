@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Reserva } from '../../class/reserva';
 import { ReservasService } from '../../servicios/reservas.service';
 import * as moment from 'moment';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -14,6 +15,10 @@ export class ArriendoComponent implements OnInit {
  
   ArrayReservas: Array<Reserva>;
   newReserva: Reserva;
+
+
+  sortBy!: string;
+  searchInput!: string;
   
   constructor(private reservaServicio : ReservasService) {
     this.ArrayReservas = [];
@@ -25,11 +30,45 @@ export class ArriendoComponent implements OnInit {
     this.obtenerReservas();
   }
 
+  SortBy(sortBy: string) {
+    this.sortBy = sortBy;
+  }
+
+
   public obtenerReservas() {
     this.reservaServicio.obtenerReservas().subscribe((res) => {
       this.ArrayReservas = res;
     });
 
+  }
+
+  searchBy() {
+    const searchConfig = {
+      sortBy: this.sortBy,
+      searchInput: this.searchInput  
+    }
+
+    console.log(searchConfig);
+    
+
+    try {
+      this.reservaServicio.searchBy(searchConfig).subscribe(
+      (res) => {
+
+        console.log(res);
+        var json = JSON.stringify(res);
+        this.ArrayReservas = JSON.parse(json);
+        console.log(this.ArrayReservas);
+        
+      }
+    )
+    } catch (e: any) {
+      this.ArrayReservas = new Array;
+    }
+    
+
+
+    
   }
   
   /**

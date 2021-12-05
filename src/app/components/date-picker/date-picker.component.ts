@@ -145,7 +145,12 @@ export class DatePickerComponent implements OnInit, OnDestroy {
       console.log(this.newReserva.nombreCliente);
       console.log(this.newReserva.telefono);
 
-      this.reservasServicio.agregarReserva(this.newReserva).subscribe();
+      this.reservasServicio.agregarReserva(this.newReserva).subscribe(
+        (res) => {
+          console.log(res);
+          
+        }
+      );
       this.openPopup();
 
     } else {
