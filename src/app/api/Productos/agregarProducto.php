@@ -10,17 +10,18 @@
   $nombre =  $arrayRes['nombre'];
   $valorProducto = $arrayRes['valorProducto'];
   $stock = $arrayRes['stock'];
-  $id_proveedor = $arrayRes['id_proveedor'];
+  $proveedor = $arrayRes['proveedor'];
   
 
   require("../database.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
 
   $conexion = connect(); // CREA LA CONEXION
-  
+  $sql = "INSERT INTO productos(nombre, valorProducto, stock, proveedor) VALUES ('$nombre','$valorProducto', '$stock','$proveedor')";
   // REALIZA LA QUERY A LA DB
-  mysqli_query($conexion, "INSERT INTO productos(nombre, valorProducto, stock, id_proveedor) VALUES
-                  ('$nombre','$valorProducto', '$stock','$id_proveedor')");    
+  $result = mysqli_query($conexion, $sql);    
   
+  echo json_encode($sql);
+
   class Result {}
 
   // GENERA LOS DATOS DE RESPUESTA

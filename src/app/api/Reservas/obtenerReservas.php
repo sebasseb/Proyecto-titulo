@@ -15,7 +15,7 @@
   $link = connect();
   
   // REALIZA LA QUERY A LA DB
-  $registros = mysqli_query($link, "SELECT * FROM reservas" );
+  $registros = mysqli_query($link, "SELECT * FROM reservasfutbolito UNION SELECT * FROM reservasfuttenis Union select * from reservasfuncional union select * from reservasquincho");
   
   // RECORRE EL RESULTADO Y LO GUARDA EN UN ARRAY
   while ($resultado = mysqli_fetch_array($registros))  

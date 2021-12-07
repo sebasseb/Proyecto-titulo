@@ -12,9 +12,12 @@ $json = file_get_contents('php://input'); // RECIBE EL JSON DE ANGULAR
 
 
 $arrayRes = json_decode($json, true);
-$id = $arrayRes['id'];
+
 $rutCliente =  $arrayRes['rutCliente'];
-$id_Producto = $arrayRes['id_Producto'];
+$nombreCliente = $arrayRes['nombreCliente'];
+$reserva = $arrayRes['reserva'];
+$datetime = $arrayRes['datetime'];
+$telefono = $arrayRes['telefono'];
 
 
 
@@ -22,7 +25,11 @@ require("../database.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
 
 $conexion = connect(); // CREA LA CONEXION
 
+$sql =  "UPDATE reservas$reserva SET rutCliente = '$rutCliente', nombreCliente = '$nombreCliente', reserva = '$reserva', datetime = '$datetime', telefono = '$telefono' WHERE datetime = '$datetime'";
+
 // REALIZA LA QUERY A LA DB
-mysqli_query($conexion, "UPDATE `reservas` SET `rutCliente`='$rutCliente',`id_Producto`='$id_Producto' WHERE `id`='$id'");
+$result = mysqli_query($conexion,$sql);
+
+echo json_encode($result);
 
 header('Content-Type: application/json');

@@ -17,7 +17,7 @@ $id = $arrayRes['id'];
 $nombre =  $arrayRes['nombre'];
 $valorProducto = $arrayRes['valorProducto'];
 $stock = $arrayRes['stock'];
-$id_proveedor = $arrayRes['id_proveedor'];
+$proveedor = $arrayRes['proveedor'];
 
 
 
@@ -30,7 +30,8 @@ $conexion = connect(); // CREA LA CONEXION
 mysqli_query($conexion, "UPDATE `productos` SET
  `nombre`='$nombre',
  `valorProducto`='$valorProducto',
- `stock`='$stock' 
+ `stock`='$stock',
+ `proveedor`='$proveedor'
  
  WHERE `id`='$id'");
 

@@ -8,11 +8,10 @@
   $arrayRes = json_decode($json,true);
 
   $rutCliente =  $arrayRes['rutCliente'];
-  $producto = $arrayRes['producto'];
-  $horaReserva = $arrayRes['horaReserva'];
-  $dia = $arrayRes['dia'];
-  $nombre = $arrayRes['nombre'];
-  $mes = date('F');
+  $nombreCliente = $arrayRes['nombreCliente'];
+  $reserva = $arrayRes['reserva'];
+  $datetime = $arrayRes['datetime'];
+  $telefono = $arrayRes['telefono'];
  
   
 
@@ -21,11 +20,11 @@
   $conexion = connect(); // CREA LA CONEXION
   
   // REALIZA LA QUERY A LA DB
-  mysqli_query($conexion, "INSERT INTO reservas(rutCliente, producto, horaReserva, dia, mes, nombre) VALUES
-                  ('$rutCliente','$producto','$horaReserva','$dia','$mes','')"); 
+  $result = mysqli_query($conexion, "INSERT INTO reservas".$reserva."(rutCliente, nombreCliente, telefono, datetime, reserva) 
+                                    VALUES ('$rutCliente','$nombreCliente','$telefono','$datetime','$reserva')"); 
   
   // RECORRE EL RESULTADO Y LO GUARDA EN UN ARRAY
-  
+  echo json_encode($result);
   class Result {}
 
   // GENERA LOS DATOS DE RESPUESTA
