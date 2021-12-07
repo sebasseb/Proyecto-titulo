@@ -1,7 +1,7 @@
 export class Producto {
   id: number;
   stock!: number;
-  id_proveedor!: number;
+  proveedor!: string;
   nombre!: string;
   valorProducto!: number;
 

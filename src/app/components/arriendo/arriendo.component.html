@@ -3,7 +3,7 @@
                 <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                Buscar por:   {{sortBy}} 
+                                Buscar por: {{sortBy}}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" (click)="SortBy('RUT')">RUT</a></li>
@@ -12,14 +12,17 @@
                         </ul>
                 </div>
 
-                <input type="text" name="" id="searchInput" placeholder="Busqueda" [(ngModel)] = "searchInput"> 
+                <input type="text" name="" id="searchInput" placeholder="Busqueda" [(ngModel)]="searchInput">
 
-                <button class="btn btn-success" (click)="searchBy()">Buscar</button>
+                <button class="btn btn-success" type="submit" (click)="searchBy()">Buscar</button>
+
+
+
 
 
         </div>
 
-
+<hr/> 
 
 
 
@@ -45,5 +48,20 @@
                                 </tr>
                         </tbody>
                 </table>
+        </div>
+
+        <div class="inputs">
+                <input type="text" placeholder="RUT" [(ngModel)]="newReserva.rutCliente">
+                <input type="text" placeholder="Nombre" [(ngModel)]="newReserva.nombreCliente">
+                <input type="text" placeholder="Teléfono Contacto"[(ngModel)]="newReserva.telefono">
+                <input type="text" placeholder="Fecha Hora (Año-Mes-Dia HH:MM:SS) "[(ngModel)]="newReserva.datetime" disabled>
+                <input type="text" placeholder="Espacio" [(ngModel)]="newReserva.reserva">
+        </div>
+
+
+        <div class="buttons">
+                <button class="btn btn-success" (click)="addOrEditReserva()">Agregar o Editar Reserva</button>
+                <button *ngIf="newReserva.id !== 0" class="btn btn-danger" (click)="delete()">Eliminar
+                        Reserva</button>
         </div>
 </div>

@@ -39,18 +39,20 @@ export class InventarioComponent implements  OnInit {
   }
 
   public addOrEditProducto() {
+    console.log(this.newProducto.id);
+    console.log(this.newProducto.nombre);
+    console.log(this.newProducto.proveedor);
+    console.log(this.newProducto.stock);
+    console.log(this.newProducto.valorProducto);
+     console.log(this.newProducto);
     if (this.newProducto.id === 0) {
 
       this.newProducto.id = this.ArrayProductos.length + 1;
       
       this.productosServicio.agregarProducto(this.newProducto).subscribe(
-        datos => {
-          if (datos === null) {
-            this.ArrayProductos.push(this.newProducto);
-          } else {
-            console.log('no se agrego');
-            
-          }
+        (res) => {
+          console.log(res);
+          
         }
       )
 
@@ -62,7 +64,12 @@ export class InventarioComponent implements  OnInit {
 
     if (this.newProducto.id > 0) {
       
-      this.productosServicio.editarProducto(this.newProducto).subscribe();
+      this.productosServicio.editarProducto(this.newProducto).subscribe(
+        (res) => {
+          console.log(res);
+          
+        }
+      );
       
     }
 

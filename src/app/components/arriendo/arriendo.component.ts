@@ -94,7 +94,7 @@ export class ArriendoComponent implements OnInit {
       
       this.obtenerReservas();
     }
-    if (this.newReserva.id > 0) {
+    if (this.newReserva.datetime !== '' || this.newReserva.datetime !== null || this.newReserva.datetime!== '') {
       
       
      this.reservaServicio.editarReserva(this.newReserva).subscribe();
@@ -109,7 +109,12 @@ export class ArriendoComponent implements OnInit {
   public delete() {
     if (confirm('¿Seguro quieres eliminar esta entrada?')) {
       this.ArrayReservas = this.ArrayReservas.filter(elem => elem != this.newReserva);
-      this.reservaServicio.eliminarReserva(this.newReserva.id).subscribe();
+      this.reservaServicio.eliminarReserva(this.newReserva).subscribe(
+        (res) => {
+          console.log(res);
+          
+        }
+      );
 
 
 
@@ -124,6 +129,8 @@ export class ArriendoComponent implements OnInit {
    */
   public openForEdit(reserva : Reserva) {
     this.newReserva = reserva;
+    console.log(this.newReserva);
+    
     
   }
  

@@ -19,8 +19,8 @@ export class ReservasService {
     return this.http.post(`${this.URL}agregarReserva.php`, JSON.stringify(reserva));
   }
 
-  eliminarReserva(id: number) {
-    return this.http.get(`${this.URL}eliminarReserva.php?id=${id}`);
+  eliminarReserva(reserva: Reserva) {
+    return this.http.post(`${this.URL}eliminarReserva.php`, JSON.stringify(reserva));
   }
 
 
