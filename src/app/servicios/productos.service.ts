@@ -31,4 +31,7 @@ export class ProductosService {
   editarProducto(producto: Producto) {
     return this.http.post(`${this.URL}editarProductos.php`, JSON.stringify(producto));
   }
+  searchBy(objeto : any) {
+    return this.http.post(`${this.URL}searchBy.php`, JSON.stringify(objeto));
+  }
 }

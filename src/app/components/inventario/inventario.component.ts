@@ -12,6 +12,8 @@ import { ProductosService } from "src/app/servicios/productos.service";
 export class InventarioComponent implements  OnInit {
   ArrayProductos: Array<Producto>;
   newProducto: Producto;
+  sortBy!: string;
+  searchInput: any;
   
 
   
@@ -29,6 +31,34 @@ export class InventarioComponent implements  OnInit {
   ngOnInit(): void {
     this.obtenerProductos();
   }
+
+  SortBy(sortBy: string) {
+    this.sortBy = sortBy;
+  }
+  searchBy() {
+    const searchConfig = {
+      sortBy: this.sortBy,
+      searchInput: this.searchInput
+    }
+    try {
+      this.productosServicio.searchBy(searchConfig).subscribe(
+      (res: any) => {
+
+        console.log(res);
+        var json = JSON.stringify(res);
+        this.ArrayProductos = JSON.parse(json);
+        console.log(this.ArrayProductos);
+        
+          //console.log(res);
+          
+      }
+    )
+    } catch (e: any) {
+      this.ArrayProductos = new Array;
+    }
+  }
+
+
 
   public obtenerProductos() {
     this.productosServicio.obtenerProductos().subscribe((res) => {

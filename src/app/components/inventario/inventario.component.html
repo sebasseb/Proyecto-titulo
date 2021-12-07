@@ -1,24 +1,30 @@
 <div class="container" style="padding-top: 8%;">
         <h1>Inventario</h1>
+        
+        
+
         <div class="wrapper">
-                <button class="btn" id="btn-Back" routerLink="/menu-principal"><i class="fas fa-arrow-circle-left"> Menu
-                        Principal</i></button>
-                <p>Inserte datos para llenar el inventario: </p>
-                <div class="inputs">
-                        <input id="nombre" type="text" placeholder="Nombre Producto" [(ngModel)]="newProducto.nombre">
-                        <input id="proveedor" type="text" placeholder="Nombre Proveedor"
-                                [(ngModel)]="newProducto.proveedor">
-                        <input id="cantidad" type="number" placeholder="Cantidad Producto"
-                                [(ngModel)]="newProducto.stock">
-                        <input id="precio" type="number" placeholder="Precio" [(ngModel)]="newProducto.valorProducto">
+                <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Buscar por: {{sortBy}}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" (click)="SortBy('Nombre')">Nombre</a></li>
+                                <li><a class="dropdown-item" (click)="SortBy('Proveedor')">Proveedor</a></li>
+                                <li><a class="dropdown-item" (click)="SortBy('Precio')">Precio</a></li>
+                        </ul>
                 </div>
-                <div class="buttons">
-                        <button class="btn btn-success" (click)="addOrEditProducto()">Agregar o Editar Producto</button>
-                        <button *ngIf="newProducto.id !== 0" class="btn btn-danger" (click)="delete()">Eliminar
-                                Producto</button>
-                </div>
+
+                <input type="text" name="" id="searchInput" placeholder="Busqueda" [(ngModel)]="searchInput">
+
+                <button class="btn btn-success" type="submit" (click)="searchBy()">Buscar</button>
+
+
+                <br>
+
+
         </div>
-        <br>
         <div class="table-responsive">
                 <table class="table table-hover table-dark">
                         <tr>
@@ -36,10 +42,26 @@
                                         <td>{{producto.nombre}}</td>
                                         <td>{{producto.proveedor}}</td>
                                         <td>{{producto.stock}}</td>
-                                        <td>{{producto.valorProducto}}</td>
+                                        <td>${{producto.valorProducto}}</td>
                                 </tr>
                         </tbody>
                 </table>
+        </div>
+        <div class="wrapper">
+                <p>Inserte datos para llenar el inventario: </p>
+                <div class="inputs">
+                        <input id="nombre" type="text" placeholder="Nombre Producto" [(ngModel)]="newProducto.nombre">
+                        <input id="proveedor" type="text" placeholder="Nombre Proveedor"
+                                [(ngModel)]="newProducto.proveedor">
+                        <input id="cantidad" type="number" placeholder="Cantidad Producto"
+                                [(ngModel)]="newProducto.stock">
+                        <input id="precio" type="number" placeholder="Precio" [(ngModel)]="newProducto.valorProducto">
+                </div>
+                <div class="buttons">
+                        <button class="btn btn-success" (click)="addOrEditProducto()">Agregar o Editar Producto</button>
+                        <button *ngIf="newProducto.id !== 0" class="btn btn-danger" (click)="delete()">Eliminar
+                                Producto</button>
+                </div>
         </div>
 
 </div>
