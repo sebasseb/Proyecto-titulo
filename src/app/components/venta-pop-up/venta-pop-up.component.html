@@ -1,0 +1,26 @@
+<div *ngIf="showMePartially">
+    <hr />
+    <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Reserva tu Hora</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- foto -->
+                    <div class="container" id="wrapper">
+                        <h1>Venta Realizada</h1>
+                        <img style="width: 20%;" src="assets/Icons/check-icon.png" alt="">
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" (click)="closePopup()">
+                        OK!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

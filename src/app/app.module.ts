@@ -45,6 +45,8 @@ import { QuinchoDatePickerComponent } from './components/quincho-date-picker/qui
 import { FuncionalDatePickerComponent } from './components/funcional-date-picker/funcional-date-picker.component';
 import { ReservaQuinchoComponent } from './components/reserva-quincho/reserva-quincho.component';
 import { ReservaFuncionalComponent } from './components/reserva-funcional/reserva-funcional.component';
+import { VentaPopUpComponent } from './components/venta-pop-up/venta-pop-up.component';
+
 
 
 
@@ -77,7 +79,10 @@ import { ReservaFuncionalComponent } from './components/reserva-funcional/reserv
     QuinchoDatePickerComponent,
     FuncionalDatePickerComponent,
     ReservaQuinchoComponent,
-    ReservaFuncionalComponent
+    ReservaFuncionalComponent,
+    VentaPopUpComponent,
+  
+    
 
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2021 a las 16:28:29
+-- Tiempo de generación: 08-12-2021 a las 04:33:59
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -45,20 +45,6 @@ INSERT INTO `clientes` (`rut`, `nombre`, `telefono`, `isEstudiante`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `orden_compra`
---
-
-CREATE TABLE `orden_compra` (
-  `id` int(11) NOT NULL,
-  `rut_cliente` varchar(11) DEFAULT NULL,
-  `id_trabajador` int(11) DEFAULT NULL,
-  `fecha` datetime DEFAULT NULL,
-  `valorTotal` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `productos`
 --
 
@@ -67,19 +53,19 @@ CREATE TABLE `productos` (
   `nombre` varchar(20) NOT NULL,
   `valorProducto` int(11) NOT NULL,
   `stock` int(11) NOT NULL,
-  `id_proveedor` int(11) NOT NULL
+  `proveedor` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `nombre`, `valorProducto`, `stock`, `id_proveedor`) VALUES
-(1, 'Cancha Futbolito', 12000, 1, 1),
-(2, 'Cancha Fut-Tenis', 10000, 1, 1),
-(3, 'Gatorade', 1500, 50, 2),
-(4, 'Cereal Bar', 500, 100, 3),
-(15, 'Triton', 780, 50, 1);
+INSERT INTO `productos` (`id`, `nombre`, `valorProducto`, `stock`, `proveedor`) VALUES
+(1, 'Gatorade', 1000, 40, 'Proveedor1'),
+(6, 'CocaCola 591mL', 1000, 40, 'Otro Proveedor Rando'),
+(7, 'Triton', 400, 0, 'Proveedor4'),
+(8, 'Powerade 815mL', 1000, 25, 'UnProveedorRandom'),
+(10, 'Cachantun 790mL', 600, 25, 'Un Proveedor');
 
 -- --------------------------------------------------------
 
@@ -89,7 +75,7 @@ INSERT INTO `productos` (`id`, `nombre`, `valorProducto`, `stock`, `id_proveedor
 
 CREATE TABLE `proveedores` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(20) NOT NULL,
+  `proveedor` varchar(20) NOT NULL,
   `telefono` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -97,7 +83,7 @@ CREATE TABLE `proveedores` (
 -- Volcado de datos para la tabla `proveedores`
 --
 
-INSERT INTO `proveedores` (`id`, `nombre`, `telefono`) VALUES
+INSERT INTO `proveedores` (`id`, `proveedor`, `telefono`) VALUES
 (1, 'Proveedor1', 912345678),
 (2, 'Proveedor2', 987654321),
 (3, 'Proveedor3', 912131516);
@@ -105,25 +91,92 @@ INSERT INTO `proveedores` (`id`, `nombre`, `telefono`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `reservas`
+-- Estructura de tabla para la tabla `reservasfuncional`
 --
 
-CREATE TABLE `reservas` (
-  `id` int(11) NOT NULL,
-  `rut` varchar(11) NOT NULL,
-  `nombre` varchar(40) NOT NULL,
-  `producto` int(11) NOT NULL,
-  `fechaReserva` datetime NOT NULL
+CREATE TABLE `reservasfuncional` (
+  `rutCliente` varchar(11) NOT NULL,
+  `nombreCliente` varchar(40) NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `datetime` varchar(20) NOT NULL,
+  `reserva` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `reservas`
+-- Volcado de datos para la tabla `reservasfuncional`
 --
 
-INSERT INTO `reservas` (`id`, `rut`, `nombre`, `producto`, `fechaReserva`) VALUES
-(5, '19015485-8', 'Sebastian', 1, '2021-11-09 19:00:00'),
-(6, '19015485-8', 'Sebastian', 1, '2021-11-09 16:00:00'),
-(7, '12345678-9', 'Roberto', 1, '2021-11-09 15:00:00');
+INSERT INTO `reservasfuncional` (`rutCliente`, `nombreCliente`, `telefono`, `datetime`, `reserva`) VALUES
+('12345678-9', 'Gregorio', 654987321, '2021-12-03 15:00:00', 'funcional'),
+('1015485-8', 'Sebastián', 940340950, '2021-12-07 19:00:00', 'funcional');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reservasfutbolito`
+--
+
+CREATE TABLE `reservasfutbolito` (
+  `rutCliente` varchar(11) NOT NULL,
+  `nombreCliente` varchar(40) NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `datetime` varchar(20) NOT NULL,
+  `reserva` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `reservasfutbolito`
+--
+
+INSERT INTO `reservasfutbolito` (`rutCliente`, `nombreCliente`, `telefono`, `datetime`, `reserva`) VALUES
+('98765432-1', 'carlos', 159753654, '2021-12-03 19:00:00', 'futbolito'),
+('19773423-k', 'dani', 978267355, '2021-12-07 15:00:00', 'futbolito'),
+('992992929', 'daniela', 2147483647, '2021-12-07 18:00:00', 'futbolito'),
+('12345678-9', 'Kuky', 1234, '2021-12-17 15:00:00', 'futbolito');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reservasfuttenis`
+--
+
+CREATE TABLE `reservasfuttenis` (
+  `rutCliente` varchar(11) NOT NULL,
+  `nombreCliente` varchar(40) NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `datetime` varchar(20) NOT NULL,
+  `reserva` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `reservasfuttenis`
+--
+
+INSERT INTO `reservasfuttenis` (`rutCliente`, `nombreCliente`, `telefono`, `datetime`, `reserva`) VALUES
+('98765432-1', 'Thor', 912345678, '2021-12-08 18:00:00', 'futtenis'),
+('19015485-8', 'Seba', 940340950, '2021-12-08 20:00:00', 'futtenis');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reservasquincho`
+--
+
+CREATE TABLE `reservasquincho` (
+  `rutCliente` varchar(11) NOT NULL,
+  `nombreCliente` varchar(40) NOT NULL,
+  `telefono` int(11) NOT NULL,
+  `datetime` varchar(20) NOT NULL,
+  `reserva` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `reservasquincho`
+--
+
+INSERT INTO `reservasquincho` (`rutCliente`, `nombreCliente`, `telefono`, `datetime`, `reserva`) VALUES
+('12345678-7', 'Maxi', 654987321, '2021-12-03 16:00:00', 'quincho'),
+('32165498-7', 'Gregorio', 321654987, '2021-12-03 19:00:00', 'quincho');
 
 -- --------------------------------------------------------
 
@@ -153,6 +206,44 @@ INSERT INTO `trabajadores` (`id`, `rut`, `passwd`, `nombre`, `direccion`, `fono`
 (129, '9811606-0', '123456', 'ivo plex', 'baron', 123456789, 0, 380000),
 (131, '14725836-9', '123456', 'Queti', 'valparaiso', 123456789, 1, 500000);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `id` int(11) NOT NULL,
+  `fecha` datetime NOT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`id`, `fecha`, `total`) VALUES
+(6, '2021-12-08 02:28:29', 3800),
+(7, '2021-12-08 02:30:29', 3800),
+(8, '2021-12-08 02:31:39', 3800),
+(9, '2021-12-08 02:32:18', 3800),
+(10, '2021-12-08 02:32:39', 3800),
+(11, '2021-12-08 02:34:46', 15000),
+(12, '2021-12-08 02:57:20', 12800),
+(13, '2021-12-08 03:00:34', 3400),
+(14, '2021-12-08 03:01:37', 7000),
+(15, '2021-12-08 03:02:31', 8000),
+(16, '2021-12-08 03:03:23', 3000),
+(17, '2021-12-08 03:03:53', 5000),
+(18, '2021-12-08 03:04:41', 3000),
+(19, '2021-12-08 03:05:11', 3000),
+(20, '2021-12-08 03:05:35', 2000),
+(21, '2021-12-08 03:05:57', 2000),
+(22, '2021-12-08 03:06:17', 400),
+(23, '2021-12-08 03:16:01', 800),
+(24, '2021-12-08 03:26:11', 800),
+(25, '2021-12-08 03:31:20', 1200);
+
 --
 -- Índices para tablas volcadas
 --
@@ -164,19 +255,10 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`rut`);
 
 --
--- Indices de la tabla `orden_compra`
---
-ALTER TABLE `orden_compra`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `FK_rutCliente` (`rut_cliente`),
-  ADD KEY `FK_idTrabajdor` (`id_trabajador`);
-
---
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_proveedor` (`id_proveedor`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `proveedores`
@@ -185,12 +267,28 @@ ALTER TABLE `proveedores`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `reservas`
+-- Indices de la tabla `reservasfuncional`
 --
-ALTER TABLE `reservas`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `fechaReserva` (`fechaReserva`),
-  ADD KEY `producto` (`producto`);
+ALTER TABLE `reservasfuncional`
+  ADD PRIMARY KEY (`datetime`);
+
+--
+-- Indices de la tabla `reservasfutbolito`
+--
+ALTER TABLE `reservasfutbolito`
+  ADD PRIMARY KEY (`datetime`);
+
+--
+-- Indices de la tabla `reservasfuttenis`
+--
+ALTER TABLE `reservasfuttenis`
+  ADD PRIMARY KEY (`datetime`);
+
+--
+-- Indices de la tabla `reservasquincho`
+--
+ALTER TABLE `reservasquincho`
+  ADD PRIMARY KEY (`datetime`);
 
 --
 -- Indices de la tabla `trabajadores`
@@ -200,20 +298,20 @@ ALTER TABLE `trabajadores`
   ADD UNIQUE KEY `rut` (`rut`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- Indices de la tabla `ventas`
 --
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de la tabla `orden_compra`
+-- AUTO_INCREMENT de las tablas volcadas
 --
-ALTER TABLE `orden_compra`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
@@ -222,40 +320,16 @@ ALTER TABLE `proveedores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `reservas`
---
-ALTER TABLE `reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT de la tabla `trabajadores`
 --
 ALTER TABLE `trabajadores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
 
 --
--- Restricciones para tablas volcadas
+-- AUTO_INCREMENT de la tabla `ventas`
 --
-
---
--- Filtros para la tabla `orden_compra`
---
-ALTER TABLE `orden_compra`
-  ADD CONSTRAINT `FK_idTrabajdor` FOREIGN KEY (`id_trabajador`) REFERENCES `trabajadores` (`id`),
-  ADD CONSTRAINT `FK_rutCliente` FOREIGN KEY (`rut_cliente`) REFERENCES `clientes` (`rut`);
-
---
--- Filtros para la tabla `productos`
---
-ALTER TABLE `productos`
-  ADD CONSTRAINT `FK_idProveedor` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id`),
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id`);
-
---
--- Filtros para la tabla `reservas`
---
-ALTER TABLE `reservas`
-  ADD CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`producto`) REFERENCES `productos` (`id`);
+ALTER TABLE `ventas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
