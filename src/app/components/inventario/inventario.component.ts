@@ -104,6 +104,8 @@ export class InventarioComponent implements  OnInit {
     }
 
     this.newProducto = new Producto();
+
+    window.location.reload();
     
   }
 
@@ -125,6 +127,7 @@ export class InventarioComponent implements  OnInit {
       this.ArrayProductos = this.ArrayProductos.filter(elem => elem != this.newProducto);
       this.productosServicio.eliminarProducto(this.newProducto.id).subscribe();
       this.newProducto = new Producto();
+      window.location.reload();
     }
   }
 

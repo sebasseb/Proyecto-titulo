@@ -67,6 +67,7 @@ export class TrabajadoresComponent implements OnInit {
       this.trabajadoresServicio.editarTrabajador(this.newTrabajador).subscribe();
     }
     this.newTrabajador = new Trabajador();
+    window.location.reload();
 
     //console.log(this.ArrayTrabajadores)
   }
@@ -94,6 +95,7 @@ export class TrabajadoresComponent implements OnInit {
 
 
       this.newTrabajador = new Trabajador();
+      window.location.reload();
 
 
     }

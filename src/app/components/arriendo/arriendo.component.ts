@@ -80,17 +80,6 @@ export class ArriendoComponent implements OnInit {
 
       this.newReserva.id = this.ArrayReservas.length + 1;
       
-      this.reservaServicio.agregarReserva(this.newReserva).subscribe(
-        datos => {
-          if (datos === null) {
-            this.ArrayReservas.push(this.newReserva);
-          } else {
-            console.log('no se agrego');
-
-          }
-        }
-      )
-      
       
       this.obtenerReservas();
     }
@@ -100,6 +89,7 @@ export class ArriendoComponent implements OnInit {
      this.reservaServicio.editarReserva(this.newReserva).subscribe();
     }
     this.newReserva = new Reserva();
+    window.location.reload();
   }
 
   /**
@@ -119,7 +109,7 @@ export class ArriendoComponent implements OnInit {
 
 
       this.newReserva = new Reserva();
-
+      window.location.reload();
 
     }
 

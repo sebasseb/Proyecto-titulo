@@ -39,7 +39,7 @@ export class MenuPrincipalComponent implements OnInit {
     
 
     this.isAdmin = this.trabajador[0].isAdmin;
-    console.log(this.isAdmin);
+    
     
     if (this.isAdmin == 0) {
 
