@@ -33,6 +33,9 @@ export class TrabajadoresComponent implements OnInit {
    
     
   }
+  setAdmin(bool: boolean) {
+    this.newTrabajador.isAdmin = bool;
+  }
 
   public obtenerTrabajadores() {
     this.trabajadoresServicio.obtenerTrabajadores().subscribe((res) => {
@@ -78,12 +81,6 @@ export class TrabajadoresComponent implements OnInit {
 
   public openForEdit(trabajador: Trabajador) {
     this.newTrabajador = trabajador;
-    if (1) {
-      this.newTrabajador.isAdmin = trabajador.isAdmin;
-    }
-    console.log(this.newTrabajador.isAdmin);
-    
- 
 
   }
 

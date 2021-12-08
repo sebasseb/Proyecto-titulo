@@ -10,9 +10,9 @@
           </div>
       
           <!-- Login Form -->
-          <form  [formGroup]="loginForm" (ngSubmit)="onLogin()">
-            <input type="text" id="rut" class="fadeIn second" name="rut"  placeholder="login" formControlName="rut" >
-            <input type="password" id="passwd" class="fadeIn third" name="passwd"  placeholder="password" formControlName="passwd">
+          <form  [formGroup]="loginForm" (ngSubmit)="onLogin()" autocomplete="off">
+            <input autocomplete="off" type="text" id="rut" class="fadeIn second" name="rut"  placeholder="login" formControlName="rut" >
+            <input autocomplete="off" type="password" id="passwd" class="fadeIn third" name="passwd"  placeholder="password" formControlName="passwd">
             <input type="submit" class="fadeIn fourth" value="Log In">
             
           </form>

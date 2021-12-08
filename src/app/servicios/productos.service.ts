@@ -43,4 +43,8 @@ export class ProductosService {
   restarStock(data: any) {
     return this.http.post(`/canchaseb/src/app/api/Venta/restarStock.php`, JSON.stringify(data))
   }
+
+  xls() {
+    return this.http.get(`/canchaseb/src/app/api/Venta/excel.php`);
+  }
 }

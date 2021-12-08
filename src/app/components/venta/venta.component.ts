@@ -65,6 +65,10 @@ export class VentaComponent implements OnInit {
 
   }
 
+  downloadXLS() {
+    this.productosServicio.xls().subscribe();
+  }
+
   addToCart() {
 
     const cartProducto: Producto = {

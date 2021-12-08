@@ -48,7 +48,7 @@ export class ArriendoComponent implements OnInit {
       searchInput: this.searchInput  
     }
 
-    console.log(searchConfig);
+    
     
 
     try {
@@ -58,7 +58,7 @@ export class ArriendoComponent implements OnInit {
         console.log(res);
         var json = JSON.stringify(res);
         this.ArrayReservas = JSON.parse(json);
-        console.log(this.ArrayReservas);
+       
         
       }
     )
@@ -71,18 +71,14 @@ export class ArriendoComponent implements OnInit {
     
   }
   
-  /**
-   * addOrEditReserva
-   */
+  setReserva(reserva : string) {
+    this.newReserva.reserva = reserva;
+
+    
+ }
   
   public addOrEditReserva() {
-    if (this.newReserva.id === 0) {
-
-      this.newReserva.id = this.ArrayReservas.length + 1;
-      
-      
-      this.obtenerReservas();
-    }
+   
     if (this.newReserva.datetime !== '' || this.newReserva.datetime !== null || this.newReserva.datetime!== '') {
       
       
@@ -99,12 +95,7 @@ export class ArriendoComponent implements OnInit {
   public delete() {
     if (confirm('¿Seguro quieres eliminar esta entrada?')) {
       this.ArrayReservas = this.ArrayReservas.filter(elem => elem != this.newReserva);
-      this.reservaServicio.eliminarReserva(this.newReserva).subscribe(
-        (res) => {
-          console.log(res);
-          
-        }
-      );
+      this.reservaServicio.eliminarReserva(this.newReserva).subscribe();
 
 
 
@@ -119,7 +110,7 @@ export class ArriendoComponent implements OnInit {
    */
   public openForEdit(reserva : Reserva) {
     this.newReserva = reserva;
-    console.log(this.newReserva);
+  
     
     
   }

@@ -65,8 +65,8 @@
             <tbody>
               <tr *ngFor="let producto of ArrayCarrito">
                 <td>{{producto.nombre}}</td>
-                <td><i id="-" class="fas fa-minus" (click)="minus(producto.id)"></i> {{producto.stock}} <i id="+"
-                    class="fas fa-plus" (click)="add(producto.id)"></i></td>
+                <td><button id="-" class="fas fa-minus" (click)="minus(producto.id)"></button> {{producto.stock}} <button id="+"
+                    class="fas fa-plus" (click)="add(producto.id)"></button></td>
                 <td>${{producto.valorProducto}}</td>
                 <td> <button class="btn btn-danger" (click)="pop(producto.id)"><i
                       class="far fa-times-circle"></i></button></td>
@@ -76,6 +76,8 @@
         </div>
       </div>
     </div>
+
+    <!-- <button (click)="downloadXLS()">Descarga xls</button> -->
   </div>
 
 

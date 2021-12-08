@@ -11,9 +11,17 @@
                                 [(ngModel)]="newTrabajador.fono">
                         <input id="salario" type="number" placeholder="Salario del Trabajador" [(ngModel)]="newTrabajador.salario">
                         <input type="password" id="passwd" placeholder="Contraseña" [(ngModel)]="newTrabajador.passwd">              
-                        Administrador?
-                        <br>
-                        <input type="checkbox"   id="admin" placeholder="Es Admin?" [(ngModel)]="newTrabajador.isAdmin">                        
+                        <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Administrador: {{newTrabajador.isAdmin}}
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" (click)="setAdmin(true)">SI</a></li>
+                                        <li><a class="dropdown-item" (click)="setAdmin(false)">NO</a></li>
+                                        
+                                </ul>
+                        </div>                      
                 </div>
                 <div class="buttons">
                         <button class="btn btn-success" (click)="addOrEditTrabajador()">Agregar o Editar
@@ -31,6 +39,8 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Dirección</th>
                                 <th scope="col">Teléfono</th>
+                                <th scope="col">Admin?</th>
+
                         </tr>
                         <tbody>
                                 <tr *ngFor="let trabajador of ArrayTrabajadores" (click)="openForEdit(trabajador)"
@@ -40,6 +50,8 @@
                                         <td>{{trabajador.nombre}}</td>
                                         <td>{{trabajador.direccion}}</td>
                                         <td>{{trabajador.fono}}</td>
+                                        <td>{{trabajador.isAdmin}}</td>
+
                                 </tr>
                         </tbody>
                 </table>
