@@ -22,3 +22,43 @@ P{
     margin-left: 23%;
     margin-bottom: 0;
 }
+
+
+@media (max-width: 1023px){
+    .container{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .mapa{
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .mapa{
+        margin-left: 10%;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 425px) { 
+    .container{
+        position: relative;
+        
+    }
+
+    .mapa{
+        position: relative;
+        right: 10%;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+
+}

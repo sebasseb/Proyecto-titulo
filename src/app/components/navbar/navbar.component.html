@@ -3,39 +3,39 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/inicio"><img src="assets/Logo/logo-negro.png"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item active">
-            <a class="nav-link" routerLink="/inicio">Inicio <span class="sr-only"></span></a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/inicio">Inicio <span class="sr-only"></span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" routerLink="/nosotros">Nosotros</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/nosotros">Nosotros</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" routerLink="/servicios">Servicios</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/servicios">Servicios</a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link" routerLink="/galeria">Galeria de Fotos</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/galeria">Galeria de Fotos</a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Reserva de Espacios
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/futbolito">Canchas Futbolito</a></li>
-              <li><a class="dropdown-item" routerLink="/futbol-tenis">Canchas Futbol-Tenis</a></li>
-              <li><a class="dropdown-item" routerLink="/funcional" >Área Funcional</a></li>
-              <li><a class="dropdown-item" routerLink="/quincho">Área Quincho</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/futbolito">Canchas Futbolito</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/futbol-tenis">Canchas Futbol-Tenis</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/funcional" >Área Funcional</a></li>
+              <li><a class="dropdown-item" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/quincho">Área Quincho</a></li>
             </ul>
           </li>
         <li class="nav-item ">
-            <a class="nav-link" routerLink="/contacto">Contacto</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/contacto">Contacto</a>
         </li>
         <li>
-            <a class="nav-link" routerLink="/menu-principal" id="loginLink">Trabajadores</a>
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/menu-principal" id="loginLink">Trabajadores</a>
       </ul>
     </div>
   </div>

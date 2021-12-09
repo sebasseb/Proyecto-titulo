@@ -23,6 +23,36 @@
 }
 
 .carousel-item{
-    background:transparent;
+    background:rgba(0, 0, 0, 0.172);
     
+}
+
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 768px) and (max-width: 1024px) { 
+    img{
+        width: fit-content;
+        position: relative;
+        top: 15%;
+
+        background: black;
+    }
+}
+
+@media (min-width: 425px) and (max-width: 767px) { 
+   .carousel-inner{
+       width: 200%;
+       
+   }
+
+   img{
+       position: relative;
+       top: 10%;
+   }
+
+   .carousel-indicators{
+       width: 170%;
+   }
+
+  
 }

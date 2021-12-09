@@ -1,4 +1,6 @@
-<div class="container" style="padding-top: 8%;">
+<div class="container" style="padding-top: 13%;">
+  <h1>Sistema Ventas</h1>
+  <br>
   <div class="wrapper">
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
@@ -40,12 +42,7 @@
         </table>
 
 
-        <div id="buttons">
-          <button class="btn btn-warning" (click)="addToCart()" id="cart-button"><img id="cart-icon"
-              src="assets/Icons/cart-icon.png" alt=""></button>
-          <button class="btn btn-success" (click)="vender()">Venta</button>
-          <label>Total: ${{total}}</label>
-        </div>
+        
       </div>
     </div>
 
@@ -77,7 +74,13 @@
       </div>
     </div>
 
-    <!-- <button (click)="downloadXLS()">Descarga xls</button> -->
+   
+  </div>
+  <div id="buttons">
+    <button class="btn btn-warning" (click)="addToCart()" id="cart-button"><img id="cart-icon"
+        src="assets/Icons/cart-icon.png" alt=""></button>
+    <button class="btn btn-success" (click)="vender()">Venta</button>
+    <h4>Total: ${{total}}</h4>
   </div>
 
 

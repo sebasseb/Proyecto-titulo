@@ -15,6 +15,7 @@ export class ReservaFutboltenisComponent implements OnInit {
 
   ngOnInit(): void {
     this._datepicker.reserva = this.reserva;
+    
 
   }
 

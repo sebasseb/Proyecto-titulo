@@ -45,6 +45,9 @@ export class ProductosService {
   }
 
   xls() {
-    return this.http.get(`/canchaseb/src/app/api/Venta/excel.php`);
+    const obj = {
+      
+    }
+    return this.http.post(`/canchaseb/src/app/api/Venta/excel.php`, JSON.stringify(obj));
   }
 }
