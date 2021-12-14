@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reserva-funcional.component.less']
 })
 export class ReservaFuncionalComponent implements OnInit {
-
-  constructor() { }
+  reserva: string;
+  constructor() { 
+    this.reserva = 'funcional';
+  }
 
   ngOnInit(): void {
   }

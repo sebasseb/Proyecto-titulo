@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           dateNow.setHours(dateNow.getHours() + 1);
           
           this.cookieService.set('token', res.body.token,dateNow);
-          console.log(res.body.token);
+          //console.log(res.body.token);
 
 
 

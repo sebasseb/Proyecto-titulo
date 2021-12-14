@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/class/producto';
 import { ProductosService } from "src/app/servicios/productos.service";
-import { Orden } from '../../class/orden';
+
 
 
 @Component({
@@ -149,7 +149,7 @@ export class VentaComponent implements OnInit {
 
 
   vender() {
-    const orden: Orden = {
+    const orden: any = {
       fecha: new Date(),
       total: this.total
     }

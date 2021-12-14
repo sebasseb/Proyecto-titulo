@@ -1,11 +1,10 @@
-import { ReservaComponent } from '../components/reserva/reserva.component';
 import { Reserva } from './reserva';
 
 export class Cliente {
   rutCliente!: string;
   nombreCliente!: string;
   fonoCliente!: number;
-  isEstudiante;
+  isEstudiante: boolean;
   ArrayReservas = Array<Reserva>();
 
 

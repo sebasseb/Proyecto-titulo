@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Producto } from '../class/producto';
-import { Orden } from '../class/orden';
+
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,7 @@ export class ProductosService {
     return this.http.post(`${this.URL}searchBy.php`, JSON.stringify(objeto));
   }
 
-  vender(orden: Orden) {
+  vender(orden: any) {
     return this.http.post(`/canchaseb/src/app/api/Venta/venta.php`, JSON.stringify(orden))
   }
 

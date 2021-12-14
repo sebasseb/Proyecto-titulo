@@ -29,6 +29,9 @@ export class MenuPrincipalComponent implements OnInit {
     //httpHeaders = httpHeaders.append('Authorization', 'Bearer ' + token);
     this.cookie = this.cookieService.get('token');
     //console.log(this.cookie);
+    this.cookie = this.cookie.substring(20);
+   
+    
 
     const decodedCookie = atob(this.cookie);
 
